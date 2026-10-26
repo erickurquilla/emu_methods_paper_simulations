@@ -5,4 +5,4 @@
 *.cubin
 *.fatbin
 plt*
-
+allData.h5

@@ -1,0 +1,15 @@
+
+Currently Loaded Modules:
+  1) craype-x86-milan                 6) PrgEnv-gnu/8.7.0        11) gpu/1.0                          16) gcc-native/14       (c)
+  2) libfabric/2.3.1                  7) craype/2.7.36           12) sqs/2.0                          17) cray-libsci/26.03.0
+  3) craype-network-ofi               8) perftools-base/26.03.0  13) darshan/default                  18) cray-mpich/9.1.0    (mpi)
+  4) xpmem/2.11.5-1.3_g73ade43320bc   9) cpe/26.03               14) cray-hdf5-parallel/1.14.3.9
+  5) cray-dsmml/0.3.1                10) craype-accel-nvidia80   15) cudatoolkit/13.2            (g)
+
+  Where:
+   c:    Compiler
+   g:    built for GPU
+   mpi:  MPI Providers
+
+ 
+

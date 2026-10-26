@@ -1,0 +1,1451 @@
+
+Currently Loaded Modules:
+  1) craype-x86-milan                10) craype-accel-nvidia80
+  2) libfabric/2.3.1                 11) gpu/1.0
+  3) craype-network-ofi              12) sqs/2.0
+  4) xpmem/2.11.5-1.3_g73ade43320bc  13) darshan/default
+  5) cray-dsmml/0.3.1                14) cray-hdf5-parallel/1.14.3.9
+  6) PrgEnv-gnu/8.7.0                15) cudatoolkit/13.2            (g)
+  7) craype/2.7.36                   16) gcc-native/14               (c)
+  8) perftools-base/26.03.0          17) cray-libsci/26.03.0
+  9) cpe/26.03                       18) cray-mpich/9.1.0            (mpi)
+
+  Where:
+   c:    Compiler
+   g:    built for GPU
+   mpi:  MPI Providers
+
+ 
+
+Initializing AMReX (20.06-3410-gc4a2ddb18bd7)...
+MPI initialized with 8 MPI processes
+MPI initialized with thread support level 0
+Initializing CUDA...
+CUDA initialized with 8 devices.
+AMReX (20.06-3410-gc4a2ddb18bd7) initialized
+==============================================================================
+ Emu Build Information
+==============================================================================
+build date:    2026-10-26 08:04:11.443669
+build machine: Linux login18 6.4.0-150600.23.135_15.0.44-cray_shasta_c #1 SMP Fri 16 Oct 2026 11:20:28 PDT (4550ec0) x86_64 x86_64 x86_64 GNU/Linux
+build dir:     /global/common/software/m3761/bigqke_software/Emu/Exec
+AMReX dir:     ../submodules/amrex
+
+COMP:          gnu
+COMP version:  13.2
+
+C++ compiler:  nvcc
+C++ flags:     -ccbin=g++ -Xcompiler=' -Werror=return-type -g1 -O3 -finline-limit=43210 -std=c++20  -pthread  -std=c++20' --std=c++20 -Wno-deprecated-gpu-targets -m64 -maxrregcount=255 --expt-relaxed-constexpr --expt-extended-lambda --forward-unknown-to-host-compiler -Xcudafe --diag_suppress=esa_on_defaulted_function_ignored -Xcudafe --diag_suppress=implicit_return_from_non_void_function --Werror cross-execution-space-call -lineinfo --ptxas-options=-O3 --ptxas-options=-v --use_fast_math  --Werror ext-lambda-captures-this --display-error-number --diag-error 20092 --relocatable-device-code=true --generate-code arch=compute_80,code=sm_80 -x cu -c -Xcompiler='-march=znver3' -Xcompiler='-march=znver3'  -DAMREX_TINY_PROFILING -DBL_USE_MPI -DAMREX_USE_MPI -DAMREX_USE_CUDA -DAMREX_USE_GPU -DBL_COALESCE_FABS -DAMREX_GPU_MAX_THREADS=256 -DAMREX_USE_GPU_RDC -DBL_SPACEDIM=3 -DAMREX_SPACEDIM=3 -DBL_FORT_USE_UNDERSCORE -DAMREX_FORT_USE_UNDERSCORE -DBL_Linux -DAMREX_Linux -DAMREX_PARTICLES -DNDEBUG -DNUM_FLAVORS=3 -DSHAPE_FACTOR_ORDER=2 -DNUM_MOMENTS=3 -DSET_EQUILIBRIUM=0 -DCOORD_SYS=0 -DAMREX_USE_HDF5 -Itmp_build_dir/s/3d.gnu.TPROF.MPI.CUDA.EXE -I. -I../submodules/amrex/Src/Extern/HDF5 -I/opt/cray/pe/hdf5-parallel/1.14.3.9/include -I. -I../Source -I../submodules/amrex/Src/Base -I../submodules/amrex/Src/Base/Parser -I../submodules/amrex/Src/Particle -I../submodules/amrex/Tools/C_scripts -isystem /opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/include -I/opt/cray/pe/mpich/9.1.0/ofi/gnu/12.3/include -I/opt/cray/pe/libsci/26.03.0/GNU/12/x86_64/include -I/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/nvvm/include -I/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/extras/CUPTI/include -I/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/extras/Debugger/include -I/opt/cray/pe/hdf5-parallel/1.14.3.9/gnu/12.3/include -I/opt/cray/pe/dsmml/0.3.1/dsmml//include
+
+Link flags:    -L. -L/usr/lib64/gcc/x86_64-suse-linux/14/ -L/opt/cray/pe/hdf5-parallel/1.14.3.9/lib -L/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/lib64 -Xlinker -rpath -Xlinker /opt/cray/pe/hdf5-parallel/1.14.3.9/lib
+Libraries:      -L/opt/cray/pe/mpich/9.1.0/ofi/gnu/12.3/lib -L/opt/cray/pe/mpich/9.1.0/gtl/lib -L/opt/cray/pe/libsci/26.03.0/GNU/12/x86_64/lib -L/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/lib64/stubs -L/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/lib64 -L/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/nvvm/lib64 -L/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/extras/CUPTI/lib64 -L/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/cuda/13.2/extras/Debugger/lib64 -L/opt/nvidia/hpc_sdk/Linux_x86_64/26.5/math_libs/13.2/lib64 -L/opt/cray/pe/hdf5-parallel/1.14.3.9/gnu/12.3/lib -L/global/common/software/nersc9/darshan/3.4.6-gcc-13.2.1/lib -L/opt/cray/pe/dsmml/0.3.1/dsmml//lib -Xlinker=--as-needed,-lcupti,-lcudart,--no-as-needed -lcuda -Xlinker=--as-needed,-lhdf5_hl_parallel,--no-as-needed -Xlinker=--as-needed,-lhdf5_parallel,--no-as-needed -Xlinker=-rpath=/global/common/software/nersc9/darshan/3.4.6-gcc-13.2.1/lib -Xlinker=-no-as-needed -ldarshan -llustreapi -lz -Xlinker=--as-needed,-lhdf5hl_fortran_parallel,--no-as-needed -Xlinker=--as-needed,-lhdf5_fortran_parallel,--no-as-needed -Xlinker=--as-needed,-lmpifort_gnu,--no-as-needed -Xlinker=--as-needed,-lsci_gnu_mpi,--no-as-needed -Xlinker=--as-needed,-lmpi_gnu,--no-as-needed -lmpi_gtl_cuda -Xlinker=--as-needed,-lsci_gnu,--no-as-needed -ldl -Xlinker=--as-needed,-ldsmml,--no-as-needed -lxpmem -lhdf5 -lz -ldl -lcuda -lcurand -lcusparse -lgfortran -lquadmath
+
+
+Emu       git describe: v1.3-357-g4894df0
+AMReX        git describe: 20.06-3410-gc4a2ddb18
+
+==============================================================================
+
+Number of boxes created: 8
+Reading EoS table... 
+(ReadEosTable.cpp) Using table: /pscratch/sd/b/bigqke/bigqke_scratch/tables/LS220.h5
+(ReadEosTable.cpp) nrho = 234, ntemp = 136, nye = 50
+(ReadEosTable.cpp) EOS:rhomin  = 1.00000e+03 g/cm^3
+(ReadEosTable.cpp) EOS:rhomax  = 1.00000e+16 g/cm^3
+(ReadEosTable.cpp) EOS:tempmin  = 0.0100 MeV
+(ReadEosTable.cpp) EOS:tempmax  = 251.1886 MeV
+(ReadEosTable.cpp) EOS:yemin  = 0.0350
+(ReadEosTable.cpp) EOS:yemax  = 0.5500
+(ReadEosTable.cpp) Finished reading EoS table!
+Reading NuLib table... 
+(ReadNuLibTable.cpp) Using table: /pscratch/sd/b/bigqke/bigqke_scratch/tables/NuLib_SFHo.h5
+(ReadNuLibTable.cpp) nrho = 82, ntemp = 65, nye = 51, nspecies=3, ngroup=18
+(ReadNuLibTable.cpp) NuLib:rhomin  = 1.00000e+06 g/cm^3
+(ReadNuLibTable.cpp) NuLib:rhomax  = 3.16228e+15 g/cm^3
+(ReadNuLibTable.cpp) NuLib:tempmin  = 0.0500 MeV
+(ReadNuLibTable.cpp) NuLib:tempmax  = 150.0000 MeV
+(ReadNuLibTable.cpp) NuLib:yemin  = 0.0350
+(ReadNuLibTable.cpp) NuLib:yemax  = 0.5500
+(ReadNuLibTable.cpp) Finished reading NuLib table!
+(ReadHDF5RhoYeT.cpp) Using hdf5: ./rho_Ye_T.hdf5
+(ReadHDF5RhoYeT.cpp) ncellx_ = 2, ncelly_ = 2, ncellz_ = 2
+(ReadHDF5RhoYeT.cpp) xmin_ = 0.000000, ymin_ = 0.000000, zmin_ = 0.000000
+(ReadHDF5RhoYeT.cpp) xmax_ = 2200000.000000, ymax_ = 2200000.000000, zmax_ = 2200000.000000
+AFTER ALLOC: vupz_array_input = 0x7fbde8000900
+N = 8
+vupz[0] AFTER ALLOC = 1.000000e-30
+BEFORE CLOSE: vupz[0] = 1.000000e-30
+vupz[0] = 0
+vupz[1] = 0
+Initializing particles... 
+Using 1196 directions.
+  Writing plotfile plt00000
+Starting timestepping loop... starting_dt=1e-06
+step=1, time=1e-06, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=5.084474855e+35, Vphase=5521942335
+step=2, time=2e-06, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.008171184e+36, Vphase=5521942335
+step=3, time=3e-06, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.499370454e+36, Vphase=5521942335
+step=4, time=4e-06, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.982238864e+36, Vphase=5521942335
+step=5, time=5e-06, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.45696441e+36, Vphase=5521942335
+step=6, time=6e-06, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.923729729e+36, Vphase=5521942335
+step=7, time=7e-06, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.382712298e+36, Vphase=5521942335
+step=8, time=8e-06, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.834084618e+36, Vphase=5521942335
+step=9, time=9e-06, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.278014402e+36, Vphase=5521942335
+step=10, time=1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.714664742e+36, Vphase=5521942335
+step=11, time=1.1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=5.14419427e+36, Vphase=5521942335
+step=12, time=1.2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=5.56675732e+36, Vphase=5521942335
+step=13, time=1.3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=5.98250407e+36, Vphase=5521942335
+step=14, time=1.4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=6.391580686e+36, Vphase=5521942335
+step=15, time=1.5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=6.79412946e+36, Vphase=5521942335
+step=16, time=1.6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=7.190288933e+36, Vphase=5521942335
+step=17, time=1.7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=7.580194024e+36, Vphase=5521942335
+step=18, time=1.8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=7.963976146e+36, Vphase=5521942335
+step=19, time=1.9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=8.341763318e+36, Vphase=5521942335
+step=20, time=2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=8.713680275e+36, Vphase=5521942335
+step=21, time=2.1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=9.079848572e+36, Vphase=5521942335
+step=22, time=2.2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=9.440386683e+36, Vphase=5521942335
+step=23, time=2.3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=9.795410095e+36, Vphase=5521942335
+step=24, time=2.4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.01450314e+37, Vphase=5521942335
+step=25, time=2.5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.04893604e+37, Vphase=5521942335
+  Writing plotfile plt00025
+step=26, time=2.6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.082850414e+37, Vphase=5521942335
+step=27, time=2.7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.116256706e+37, Vphase=5521942335
+step=28, time=2.8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.149165104e+37, Vphase=5521942335
+step=29, time=2.9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.181585544e+37, Vphase=5521942335
+step=30, time=3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.213527724e+37, Vphase=5521942335
+step=31, time=3.1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.245001106e+37, Vphase=5521942335
+step=32, time=3.2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.276014926e+37, Vphase=5521942335
+step=33, time=3.3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.306578198e+37, Vphase=5521942335
+step=34, time=3.4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.33669972e+37, Vphase=5521942335
+step=35, time=3.5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.366388083e+37, Vphase=5521942335
+step=36, time=3.6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.395651675e+37, Vphase=5521942335
+step=37, time=3.7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.424498687e+37, Vphase=5521942335
+step=38, time=3.8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.452937116e+37, Vphase=5521942335
+step=39, time=3.9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.480974776e+37, Vphase=5521942335
+step=40, time=4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.508619296e+37, Vphase=5521942335
+step=41, time=4.1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.535878133e+37, Vphase=5521942335
+step=42, time=4.2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.562758567e+37, Vphase=5521942335
+step=43, time=4.3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.589267715e+37, Vphase=5521942335
+step=44, time=4.4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.61541253e+37, Vphase=5521942335
+step=45, time=4.5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.641199807e+37, Vphase=5521942335
+step=46, time=4.6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.666636186e+37, Vphase=5521942335
+step=47, time=4.7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.691728159e+37, Vphase=5521942335
+step=48, time=4.8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.716482069e+37, Vphase=5521942335
+step=49, time=4.9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.740904119e+37, Vphase=5521942335
+step=50, time=5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.765000373e+37, Vphase=5521942335
+  Writing plotfile plt00050
+step=51, time=5.1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.78877676e+37, Vphase=5521942335
+step=52, time=5.2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.812239076e+37, Vphase=5521942335
+step=53, time=5.3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.835392993e+37, Vphase=5521942335
+step=54, time=5.4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.858244053e+37, Vphase=5521942335
+step=55, time=5.5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.880797679e+37, Vphase=5521942335
+step=56, time=5.6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.903059176e+37, Vphase=5521942335
+step=57, time=5.7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.925033731e+37, Vphase=5521942335
+step=58, time=5.8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.946726422e+37, Vphase=5521942335
+step=59, time=5.9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.968142214e+37, Vphase=5521942335
+step=60, time=6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=1.989285965e+37, Vphase=5521942335
+step=61, time=6.1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.010162431e+37, Vphase=5521942335
+step=62, time=6.2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.030776263e+37, Vphase=5521942335
+step=63, time=6.3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.051132016e+37, Vphase=5521942335
+step=64, time=6.4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.071234146e+37, Vphase=5521942335
+step=65, time=6.5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.091087014e+37, Vphase=5521942335
+step=66, time=6.6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.11069489e+37, Vphase=5521942335
+step=67, time=6.7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.130061954e+37, Vphase=5521942335
+step=68, time=6.8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.149192298e+37, Vphase=5521942335
+step=69, time=6.9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.168089928e+37, Vphase=5521942335
+step=70, time=7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.186758768e+37, Vphase=5521942335
+step=71, time=7.1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.205202658e+37, Vphase=5521942335
+step=72, time=7.2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.223425361e+37, Vphase=5521942335
+step=73, time=7.3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.24143056e+37, Vphase=5521942335
+step=74, time=7.4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.259221863e+37, Vphase=5521942335
+step=75, time=7.5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.276802805e+37, Vphase=5521942335
+  Writing plotfile plt00075
+step=76, time=7.6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.294176848e+37, Vphase=5521942335
+step=77, time=7.7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.311347383e+37, Vphase=5521942335
+step=78, time=7.8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.328317732e+37, Vphase=5521942335
+step=79, time=7.9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.345091152e+37, Vphase=5521942335
+step=80, time=8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.361670831e+37, Vphase=5521942335
+step=81, time=8.1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.378059894e+37, Vphase=5521942335
+step=82, time=8.2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.394261406e+37, Vphase=5521942335
+step=83, time=8.3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.410278366e+37, Vphase=5521942335
+step=84, time=8.4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.426113718e+37, Vphase=5521942335
+step=85, time=8.5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.441770345e+37, Vphase=5521942335
+step=86, time=8.6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.457251072e+37, Vphase=5521942335
+step=87, time=8.7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.472558671e+37, Vphase=5521942335
+step=88, time=8.8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.487695858e+37, Vphase=5521942335
+step=89, time=8.9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.502665295e+37, Vphase=5521942335
+step=90, time=9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.517469595e+37, Vphase=5521942335
+step=91, time=9.1e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.532111316e+37, Vphase=5521942335
+step=92, time=9.2e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.546592971e+37, Vphase=5521942335
+step=93, time=9.3e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.56091702e+37, Vphase=5521942335
+step=94, time=9.4e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.575085878e+37, Vphase=5521942335
+step=95, time=9.5e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.589101915e+37, Vphase=5521942335
+step=96, time=9.6e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.602967451e+37, Vphase=5521942335
+step=97, time=9.7e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.616684767e+37, Vphase=5521942335
+step=98, time=9.8e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.630256098e+37, Vphase=5521942335
+step=99, time=9.9e-05, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.643683636e+37, Vphase=5521942335
+step=100, time=0.0001, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.656969533e+37, Vphase=5521942335
+  Writing plotfile plt00100
+step=101, time=0.000101, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.6701159e+37, Vphase=5521942335
+step=102, time=0.000102, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.683124809e+37, Vphase=5521942335
+step=103, time=0.000103, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.695998293e+37, Vphase=5521942335
+step=104, time=0.000104, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.708738345e+37, Vphase=5521942335
+step=105, time=0.000105, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.721346925e+37, Vphase=5521942335
+step=106, time=0.000106, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.733825953e+37, Vphase=5521942335
+step=107, time=0.000107, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.746177316e+37, Vphase=5521942335
+step=108, time=0.000108, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.758402865e+37, Vphase=5521942335
+step=109, time=0.000109, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.770504418e+37, Vphase=5521942335
+step=110, time=0.00011, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.782483759e+37, Vphase=5521942335
+step=111, time=0.000111, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.79434264e+37, Vphase=5521942335
+step=112, time=0.000112, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.806082781e+37, Vphase=5521942335
+step=113, time=0.000113, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.817705871e+37, Vphase=5521942335
+step=114, time=0.000114, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.829213569e+37, Vphase=5521942335
+step=115, time=0.000115, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.840607503e+37, Vphase=5521942335
+step=116, time=0.000116, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.851889274e+37, Vphase=5521942335
+step=117, time=0.000117, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.863060451e+37, Vphase=5521942335
+step=118, time=0.000118, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.874122579e+37, Vphase=5521942335
+step=119, time=0.000119, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.885077173e+37, Vphase=5521942335
+step=120, time=0.00012, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.895925723e+37, Vphase=5521942335
+step=121, time=0.000121, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.906669691e+37, Vphase=5521942335
+step=122, time=0.000122, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.917310514e+37, Vphase=5521942335
+step=123, time=0.000123, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.927849605e+37, Vphase=5521942335
+step=124, time=0.000124, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.93828835e+37, Vphase=5521942335
+step=125, time=0.000125, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.948628115e+37, Vphase=5521942335
+  Writing plotfile plt00125
+step=126, time=0.000126, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.958870237e+37, Vphase=5521942335
+step=127, time=0.000127, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.969016035e+37, Vphase=5521942335
+step=128, time=0.000128, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.979066802e+37, Vphase=5521942335
+step=129, time=0.000129, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.98902381e+37, Vphase=5521942335
+step=130, time=0.00013, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=2.99888831e+37, Vphase=5521942335
+step=131, time=0.000131, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.008661529e+37, Vphase=5521942335
+step=132, time=0.000132, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.018344678e+37, Vphase=5521942335
+step=133, time=0.000133, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.027938942e+37, Vphase=5521942335
+step=134, time=0.000134, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.03744549e+37, Vphase=5521942335
+step=135, time=0.000135, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.046865471e+37, Vphase=5521942335
+step=136, time=0.000136, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.056200012e+37, Vphase=5521942335
+step=137, time=0.000137, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.065450224e+37, Vphase=5521942335
+step=138, time=0.000138, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.074617199e+37, Vphase=5521942335
+step=139, time=0.000139, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.083702011e+37, Vphase=5521942335
+step=140, time=0.00014, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.092705714e+37, Vphase=5521942335
+step=141, time=0.000141, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.101629349e+37, Vphase=5521942335
+step=142, time=0.000142, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.110473935e+37, Vphase=5521942335
+step=143, time=0.000143, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.119240478e+37, Vphase=5521942335
+step=144, time=0.000144, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.127929967e+37, Vphase=5521942335
+step=145, time=0.000145, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.136543374e+37, Vphase=5521942335
+step=146, time=0.000146, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.145081655e+37, Vphase=5521942335
+step=147, time=0.000147, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.153545752e+37, Vphase=5521942335
+step=148, time=0.000148, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.16193659e+37, Vphase=5521942335
+step=149, time=0.000149, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.170255082e+37, Vphase=5521942335
+step=150, time=0.00015, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.178502124e+37, Vphase=5521942335
+  Writing plotfile plt00150
+step=151, time=0.000151, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.186678598e+37, Vphase=5521942335
+step=152, time=0.000152, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.194785373e+37, Vphase=5521942335
+step=153, time=0.000153, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.202823304e+37, Vphase=5521942335
+step=154, time=0.000154, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.210793232e+37, Vphase=5521942335
+step=155, time=0.000155, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.218695985e+37, Vphase=5521942335
+step=156, time=0.000156, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.226532378e+37, Vphase=5521942335
+step=157, time=0.000157, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.234303215e+37, Vphase=5521942335
+step=158, time=0.000158, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.242009284e+37, Vphase=5521942335
+step=159, time=0.000159, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.249651364e+37, Vphase=5521942335
+step=160, time=0.00016, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.25723022e+37, Vphase=5521942335
+step=161, time=0.000161, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.264746607e+37, Vphase=5521942335
+step=162, time=0.000162, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.272201266e+37, Vphase=5521942335
+step=163, time=0.000163, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.279594929e+37, Vphase=5521942335
+step=164, time=0.000164, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.286928316e+37, Vphase=5521942335
+step=165, time=0.000165, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.294202136e+37, Vphase=5521942335
+step=166, time=0.000166, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.301417087e+37, Vphase=5521942335
+step=167, time=0.000167, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.308573857e+37, Vphase=5521942335
+step=168, time=0.000168, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.315673123e+37, Vphase=5521942335
+step=169, time=0.000169, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.322715553e+37, Vphase=5521942335
+step=170, time=0.00017, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.329701803e+37, Vphase=5521942335
+step=171, time=0.000171, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.336632522e+37, Vphase=5521942335
+step=172, time=0.000172, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.343508347e+37, Vphase=5521942335
+step=173, time=0.000173, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.350329906e+37, Vphase=5521942335
+step=174, time=0.000174, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.357097819e+37, Vphase=5521942335
+step=175, time=0.000175, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.363812696e+37, Vphase=5521942335
+  Writing plotfile plt00175
+step=176, time=0.000176, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.370475138e+37, Vphase=5521942335
+step=177, time=0.000177, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.377085738e+37, Vphase=5521942335
+step=178, time=0.000178, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.383645079e+37, Vphase=5521942335
+step=179, time=0.000179, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.390153736e+37, Vphase=5521942335
+step=180, time=0.00018, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.396612276e+37, Vphase=5521942335
+step=181, time=0.000181, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.403021259e+37, Vphase=5521942335
+step=182, time=0.000182, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.409381235e+37, Vphase=5521942335
+step=183, time=0.000183, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.415692746e+37, Vphase=5521942335
+step=184, time=0.000184, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.421956328e+37, Vphase=5521942335
+step=185, time=0.000185, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.428172509e+37, Vphase=5521942335
+step=186, time=0.000186, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.434341808e+37, Vphase=5521942335
+step=187, time=0.000187, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.440464737e+37, Vphase=5521942335
+step=188, time=0.000188, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.446541804e+37, Vphase=5521942335
+step=189, time=0.000189, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.452573505e+37, Vphase=5521942335
+step=190, time=0.00019, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.458560332e+37, Vphase=5521942335
+step=191, time=0.000191, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.464502769e+37, Vphase=5521942335
+step=192, time=0.000192, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.470401295e+37, Vphase=5521942335
+step=193, time=0.000193, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.47625638e+37, Vphase=5521942335
+step=194, time=0.000194, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.482068489e+37, Vphase=5521942335
+step=195, time=0.000195, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.48783808e+37, Vphase=5521942335
+step=196, time=0.000196, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.493565605e+37, Vphase=5521942335
+step=197, time=0.000197, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.499251509e+37, Vphase=5521942335
+step=198, time=0.000198, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.504896232e+37, Vphase=5521942335
+step=199, time=0.000199, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.510500208e+37, Vphase=5521942335
+step=200, time=0.0002, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.516063864e+37, Vphase=5521942335
+  Writing plotfile plt00200
+step=201, time=0.000201, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.521587622e+37, Vphase=5521942335
+step=202, time=0.000202, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.527071899e+37, Vphase=5521942335
+step=203, time=0.000203, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.532517104e+37, Vphase=5521942335
+step=204, time=0.000204, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.537923643e+37, Vphase=5521942335
+step=205, time=0.000205, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.543291916e+37, Vphase=5521942335
+step=206, time=0.000206, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.548622317e+37, Vphase=5521942335
+step=207, time=0.000207, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.553915235e+37, Vphase=5521942335
+step=208, time=0.000208, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.559171053e+37, Vphase=5521942335
+step=209, time=0.000209, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.564390151e+37, Vphase=5521942335
+step=210, time=0.00021, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.569572903e+37, Vphase=5521942335
+step=211, time=0.000211, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.574719677e+37, Vphase=5521942335
+step=212, time=0.000212, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.579830837e+37, Vphase=5521942335
+step=213, time=0.000213, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.584906744e+37, Vphase=5521942335
+step=214, time=0.000214, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.58994775e+37, Vphase=5521942335
+step=215, time=0.000215, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.594954207e+37, Vphase=5521942335
+step=216, time=0.000216, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.59992646e+37, Vphase=5521942335
+step=217, time=0.000217, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.60486485e+37, Vphase=5521942335
+step=218, time=0.000218, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.609769713e+37, Vphase=5521942335
+step=219, time=0.000219, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.614641382e+37, Vphase=5521942335
+step=220, time=0.00022, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.619480185e+37, Vphase=5521942335
+step=221, time=0.000221, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.624286446e+37, Vphase=5521942335
+step=222, time=0.000222, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.629060484e+37, Vphase=5521942335
+step=223, time=0.000223, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.633802615e+37, Vphase=5521942335
+step=224, time=0.000224, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.638513151e+37, Vphase=5521942335
+step=225, time=0.000225, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.6431924e+37, Vphase=5521942335
+  Writing plotfile plt00225
+step=226, time=0.000226, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.647840665e+37, Vphase=5521942335
+step=227, time=0.000227, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.652458246e+37, Vphase=5521942335
+step=228, time=0.000228, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.65704544e+37, Vphase=5521942335
+step=229, time=0.000229, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.66160254e+37, Vphase=5521942335
+step=230, time=0.00023, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.666129834e+37, Vphase=5521942335
+step=231, time=0.000231, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.670627607e+37, Vphase=5521942335
+step=232, time=0.000232, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.675096143e+37, Vphase=5521942335
+step=233, time=0.000233, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.679535718e+37, Vphase=5521942335
+step=234, time=0.000234, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.683946607e+37, Vphase=5521942335
+step=235, time=0.000235, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.688329083e+37, Vphase=5521942335
+step=236, time=0.000236, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.692683414e+37, Vphase=5521942335
+step=237, time=0.000237, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.697009864e+37, Vphase=5521942335
+step=238, time=0.000238, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.701308696e+37, Vphase=5521942335
+step=239, time=0.000239, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.705580167e+37, Vphase=5521942335
+step=240, time=0.00024, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.709824534e+37, Vphase=5521942335
+step=241, time=0.000241, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.714042048e+37, Vphase=5521942335
+step=242, time=0.000242, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.718232959e+37, Vphase=5521942335
+step=243, time=0.000243, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.722397513e+37, Vphase=5521942335
+step=244, time=0.000244, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.726535953e+37, Vphase=5521942335
+step=245, time=0.000245, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.730648521e+37, Vphase=5521942335
+step=246, time=0.000246, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.734735453e+37, Vphase=5521942335
+step=247, time=0.000247, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.738796984e+37, Vphase=5521942335
+step=248, time=0.000248, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.742833347e+37, Vphase=5521942335
+step=249, time=0.000249, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.74684477e+37, Vphase=5521942335
+step=250, time=0.00025, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.75083148e+37, Vphase=5521942335
+  Writing plotfile plt00250
+step=251, time=0.000251, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.754793701e+37, Vphase=5521942335
+step=252, time=0.000252, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.758731655e+37, Vphase=5521942335
+step=253, time=0.000253, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.762645558e+37, Vphase=5521942335
+step=254, time=0.000254, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.766535629e+37, Vphase=5521942335
+step=255, time=0.000255, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.770402081e+37, Vphase=5521942335
+step=256, time=0.000256, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.774245124e+37, Vphase=5521942335
+step=257, time=0.000257, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.778064967e+37, Vphase=5521942335
+step=258, time=0.000258, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.781861816e+37, Vphase=5521942335
+step=259, time=0.000259, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.785635876e+37, Vphase=5521942335
+step=260, time=0.00026, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.789387348e+37, Vphase=5521942335
+step=261, time=0.000261, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.793116432e+37, Vphase=5521942335
+step=262, time=0.000262, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.796823323e+37, Vphase=5521942335
+step=263, time=0.000263, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.800508217e+37, Vphase=5521942335
+step=264, time=0.000264, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.804171306e+37, Vphase=5521942335
+step=265, time=0.000265, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.807812781e+37, Vphase=5521942335
+step=266, time=0.000266, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.81143283e+37, Vphase=5521942335
+step=267, time=0.000267, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.815031639e+37, Vphase=5521942335
+step=268, time=0.000268, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.818609392e+37, Vphase=5521942335
+step=269, time=0.000269, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.82216627e+37, Vphase=5521942335
+step=270, time=0.00027, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.825702454e+37, Vphase=5521942335
+step=271, time=0.000271, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.829218121e+37, Vphase=5521942335
+step=272, time=0.000272, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.832713447e+37, Vphase=5521942335
+step=273, time=0.000273, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.836188607e+37, Vphase=5521942335
+step=274, time=0.000274, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.839643772e+37, Vphase=5521942335
+step=275, time=0.000275, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.843079111e+37, Vphase=5521942335
+  Writing plotfile plt00275
+step=276, time=0.000276, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.846494795e+37, Vphase=5521942335
+step=277, time=0.000277, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.849890988e+37, Vphase=5521942335
+step=278, time=0.000278, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.853267855e+37, Vphase=5521942335
+step=279, time=0.000279, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.856625559e+37, Vphase=5521942335
+step=280, time=0.00028, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.859964261e+37, Vphase=5521942335
+step=281, time=0.000281, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.86328412e+37, Vphase=5521942335
+step=282, time=0.000282, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.866585293e+37, Vphase=5521942335
+step=283, time=0.000283, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.869867937e+37, Vphase=5521942335
+step=284, time=0.000284, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.873132205e+37, Vphase=5521942335
+step=285, time=0.000285, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.87637825e+37, Vphase=5521942335
+step=286, time=0.000286, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.879606223e+37, Vphase=5521942335
+step=287, time=0.000287, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.882816272e+37, Vphase=5521942335
+step=288, time=0.000288, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.886008545e+37, Vphase=5521942335
+step=289, time=0.000289, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.889183189e+37, Vphase=5521942335
+step=290, time=0.00029, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.892340347e+37, Vphase=5521942335
+step=291, time=0.000291, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.895480162e+37, Vphase=5521942335
+step=292, time=0.000292, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.898602777e+37, Vphase=5521942335
+step=293, time=0.000293, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.90170833e+37, Vphase=5521942335
+step=294, time=0.000294, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.90479696e+37, Vphase=5521942335
+step=295, time=0.000295, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.907868804e+37, Vphase=5521942335
+step=296, time=0.000296, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.910923997e+37, Vphase=5521942335
+step=297, time=0.000297, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.913962674e+37, Vphase=5521942335
+step=298, time=0.000298, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.916984967e+37, Vphase=5521942335
+step=299, time=0.000299, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.919991007e+37, Vphase=5521942335
+step=300, time=0.0003, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.922980925e+37, Vphase=5521942335
+  Writing plotfile plt00300
+step=301, time=0.000301, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.925954849e+37, Vphase=5521942335
+step=302, time=0.000302, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.928912906e+37, Vphase=5521942335
+step=303, time=0.000303, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.931855221e+37, Vphase=5521942335
+step=304, time=0.000304, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.934781921e+37, Vphase=5521942335
+step=305, time=0.000305, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.937693127e+37, Vphase=5521942335
+step=306, time=0.000306, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.940588963e+37, Vphase=5521942335
+step=307, time=0.000307, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.943469548e+37, Vphase=5521942335
+step=308, time=0.000308, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.946335003e+37, Vphase=5521942335
+step=309, time=0.000309, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.949185445e+37, Vphase=5521942335
+step=310, time=0.00031, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.952020992e+37, Vphase=5521942335
+step=311, time=0.000311, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.954841761e+37, Vphase=5521942335
+step=312, time=0.000312, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.957647864e+37, Vphase=5521942335
+step=313, time=0.000313, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.960439417e+37, Vphase=5521942335
+step=314, time=0.000314, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.963216532e+37, Vphase=5521942335
+step=315, time=0.000315, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.96597932e+37, Vphase=5521942335
+step=316, time=0.000316, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.968727891e+37, Vphase=5521942335
+step=317, time=0.000317, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.971462354e+37, Vphase=5521942335
+step=318, time=0.000318, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.974182818e+37, Vphase=5521942335
+step=319, time=0.000319, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.976889389e+37, Vphase=5521942335
+step=320, time=0.00032, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.979582173e+37, Vphase=5521942335
+step=321, time=0.000321, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.982261276e+37, Vphase=5521942335
+step=322, time=0.000322, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.9849268e+37, Vphase=5521942335
+step=323, time=0.000323, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.987578849e+37, Vphase=5521942335
+step=324, time=0.000324, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.990217524e+37, Vphase=5521942335
+step=325, time=0.000325, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.992842927e+37, Vphase=5521942335
+  Writing plotfile plt00325
+step=326, time=0.000326, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.995455156e+37, Vphase=5521942335
+step=327, time=0.000327, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=3.998054311e+37, Vphase=5521942335
+step=328, time=0.000328, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.000640489e+37, Vphase=5521942335
+step=329, time=0.000329, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.003213788e+37, Vphase=5521942335
+step=330, time=0.00033, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.005774303e+37, Vphase=5521942335
+step=331, time=0.000331, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.008322129e+37, Vphase=5521942335
+step=332, time=0.000332, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.01085736e+37, Vphase=5521942335
+step=333, time=0.000333, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.01338009e+37, Vphase=5521942335
+step=334, time=0.000334, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.01589041e+37, Vphase=5521942335
+step=335, time=0.000335, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.018388412e+37, Vphase=5521942335
+step=336, time=0.000336, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.020874187e+37, Vphase=5521942335
+step=337, time=0.000337, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.023347824e+37, Vphase=5521942335
+step=338, time=0.000338, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.025809412e+37, Vphase=5521942335
+step=339, time=0.000339, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.028259039e+37, Vphase=5521942335
+step=340, time=0.00034, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.030696791e+37, Vphase=5521942335
+step=341, time=0.000341, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.033122756e+37, Vphase=5521942335
+step=342, time=0.000342, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.035537018e+37, Vphase=5521942335
+step=343, time=0.000343, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.037939662e+37, Vphase=5521942335
+step=344, time=0.000344, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.040330772e+37, Vphase=5521942335
+step=345, time=0.000345, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.042710431e+37, Vphase=5521942335
+step=346, time=0.000346, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.045078721e+37, Vphase=5521942335
+step=347, time=0.000347, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.047435724e+37, Vphase=5521942335
+step=348, time=0.000348, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.04978152e+37, Vphase=5521942335
+step=349, time=0.000349, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.052116189e+37, Vphase=5521942335
+step=350, time=0.00035, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.054439811e+37, Vphase=5521942335
+  Writing plotfile plt00350
+step=351, time=0.000351, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.056752464e+37, Vphase=5521942335
+step=352, time=0.000352, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.059054225e+37, Vphase=5521942335
+step=353, time=0.000353, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.061345172e+37, Vphase=5521942335
+step=354, time=0.000354, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.063625381e+37, Vphase=5521942335
+step=355, time=0.000355, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.065894927e+37, Vphase=5521942335
+step=356, time=0.000356, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.068153886e+37, Vphase=5521942335
+step=357, time=0.000357, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.070402332e+37, Vphase=5521942335
+step=358, time=0.000358, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.072640338e+37, Vphase=5521942335
+step=359, time=0.000359, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.074867976e+37, Vphase=5521942335
+step=360, time=0.00036, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.07708532e+37, Vphase=5521942335
+step=361, time=0.000361, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.079292441e+37, Vphase=5521942335
+step=362, time=0.000362, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.081489409e+37, Vphase=5521942335
+step=363, time=0.000363, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.083676295e+37, Vphase=5521942335
+step=364, time=0.000364, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.085853169e+37, Vphase=5521942335
+step=365, time=0.000365, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.088020098e+37, Vphase=5521942335
+step=366, time=0.000366, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.090177153e+37, Vphase=5521942335
+step=367, time=0.000367, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.092324399e+37, Vphase=5521942335
+step=368, time=0.000368, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.094461906e+37, Vphase=5521942335
+step=369, time=0.000369, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.096589738e+37, Vphase=5521942335
+step=370, time=0.00037, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.098707962e+37, Vphase=5521942335
+step=371, time=0.000371, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.100816643e+37, Vphase=5521942335
+step=372, time=0.000372, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.102915847e+37, Vphase=5521942335
+step=373, time=0.000373, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.105005636e+37, Vphase=5521942335
+step=374, time=0.000374, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.107086075e+37, Vphase=5521942335
+step=375, time=0.000375, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.109157227e+37, Vphase=5521942335
+  Writing plotfile plt00375
+step=376, time=0.000376, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.111219154e+37, Vphase=5521942335
+step=377, time=0.000377, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.113271918e+37, Vphase=5521942335
+step=378, time=0.000378, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.11531558e+37, Vphase=5521942335
+step=379, time=0.000379, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.117350202e+37, Vphase=5521942335
+step=380, time=0.00038, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.119375843e+37, Vphase=5521942335
+step=381, time=0.000381, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.121392564e+37, Vphase=5521942335
+step=382, time=0.000382, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.123400423e+37, Vphase=5521942335
+step=383, time=0.000383, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.125399479e+37, Vphase=5521942335
+step=384, time=0.000384, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.127389791e+37, Vphase=5521942335
+step=385, time=0.000385, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.129371416e+37, Vphase=5521942335
+step=386, time=0.000386, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.131344411e+37, Vphase=5521942335
+step=387, time=0.000387, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.133308834e+37, Vphase=5521942335
+step=388, time=0.000388, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.135264739e+37, Vphase=5521942335
+step=389, time=0.000389, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.137212184e+37, Vphase=5521942335
+step=390, time=0.00039, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.139151223e+37, Vphase=5521942335
+step=391, time=0.000391, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.141081911e+37, Vphase=5521942335
+step=392, time=0.000392, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.143004302e+37, Vphase=5521942335
+step=393, time=0.000393, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.14491845e+37, Vphase=5521942335
+step=394, time=0.000394, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.146824409e+37, Vphase=5521942335
+step=395, time=0.000395, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.148722231e+37, Vphase=5521942335
+step=396, time=0.000396, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.150611969e+37, Vphase=5521942335
+step=397, time=0.000397, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.152493675e+37, Vphase=5521942335
+step=398, time=0.000398, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.154367401e+37, Vphase=5521942335
+step=399, time=0.000399, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.156233197e+37, Vphase=5521942335
+step=400, time=0.0004, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.158091114e+37, Vphase=5521942335
+  Writing plotfile plt00400
+step=401, time=0.000401, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.159941203e+37, Vphase=5521942335
+step=402, time=0.000402, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.161783513e+37, Vphase=5521942335
+step=403, time=0.000403, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.163618094e+37, Vphase=5521942335
+step=404, time=0.000404, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.165444996e+37, Vphase=5521942335
+step=405, time=0.000405, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.167264265e+37, Vphase=5521942335
+step=406, time=0.000406, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.169075952e+37, Vphase=5521942335
+step=407, time=0.000407, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.170880102e+37, Vphase=5521942335
+step=408, time=0.000408, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.172676765e+37, Vphase=5521942335
+step=409, time=0.000409, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.174465987e+37, Vphase=5521942335
+step=410, time=0.00041, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.176247814e+37, Vphase=5521942335
+step=411, time=0.000411, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.178022293e+37, Vphase=5521942335
+step=412, time=0.000412, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.179789469e+37, Vphase=5521942335
+step=413, time=0.000413, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.181549389e+37, Vphase=5521942335
+step=414, time=0.000414, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.183302097e+37, Vphase=5521942335
+step=415, time=0.000415, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.185047638e+37, Vphase=5521942335
+step=416, time=0.000416, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.186786055e+37, Vphase=5521942335
+step=417, time=0.000417, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.188517395e+37, Vphase=5521942335
+step=418, time=0.000418, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.190241699e+37, Vphase=5521942335
+step=419, time=0.000419, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.191959011e+37, Vphase=5521942335
+step=420, time=0.00042, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.193669374e+37, Vphase=5521942335
+step=421, time=0.000421, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.195372831e+37, Vphase=5521942335
+step=422, time=0.000422, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.197069424e+37, Vphase=5521942335
+step=423, time=0.000423, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.198759194e+37, Vphase=5521942335
+step=424, time=0.000424, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.200442184e+37, Vphase=5521942335
+step=425, time=0.000425, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.202118434e+37, Vphase=5521942335
+  Writing plotfile plt00425
+step=426, time=0.000426, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.203787986e+37, Vphase=5521942335
+step=427, time=0.000427, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.20545088e+37, Vphase=5521942335
+step=428, time=0.000428, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.207107155e+37, Vphase=5521942335
+step=429, time=0.000429, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.208756853e+37, Vphase=5521942335
+step=430, time=0.00043, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.210400013e+37, Vphase=5521942335
+step=431, time=0.000431, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.212036674e+37, Vphase=5521942335
+step=432, time=0.000432, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.213666874e+37, Vphase=5521942335
+step=433, time=0.000433, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.215290653e+37, Vphase=5521942335
+step=434, time=0.000434, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.216908049e+37, Vphase=5521942335
+step=435, time=0.000435, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.218519099e+37, Vphase=5521942335
+step=436, time=0.000436, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.220123843e+37, Vphase=5521942335
+step=437, time=0.000437, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.221722316e+37, Vphase=5521942335
+step=438, time=0.000438, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.223314557e+37, Vphase=5521942335
+step=439, time=0.000439, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.224900602e+37, Vphase=5521942335
+step=440, time=0.00044, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.226480487e+37, Vphase=5521942335
+step=441, time=0.000441, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.228054249e+37, Vphase=5521942335
+step=442, time=0.000442, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.229621924e+37, Vphase=5521942335
+step=443, time=0.000443, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.231183548e+37, Vphase=5521942335
+step=444, time=0.000444, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.232739155e+37, Vphase=5521942335
+step=445, time=0.000445, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.234288782e+37, Vphase=5521942335
+step=446, time=0.000446, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.235832463e+37, Vphase=5521942335
+step=447, time=0.000447, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.237370232e+37, Vphase=5521942335
+step=448, time=0.000448, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.238902125e+37, Vphase=5521942335
+step=449, time=0.000449, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.240428174e+37, Vphase=5521942335
+step=450, time=0.00045, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.241948415e+37, Vphase=5521942335
+  Writing plotfile plt00450
+step=451, time=0.000451, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.243462879e+37, Vphase=5521942335
+step=452, time=0.000452, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.244971602e+37, Vphase=5521942335
+step=453, time=0.000453, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.246474615e+37, Vphase=5521942335
+step=454, time=0.000454, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.247971952e+37, Vphase=5521942335
+step=455, time=0.000455, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.249463644e+37, Vphase=5521942335
+step=456, time=0.000456, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.250949726e+37, Vphase=5521942335
+step=457, time=0.000457, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.252430227e+37, Vphase=5521942335
+step=458, time=0.000458, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.253905181e+37, Vphase=5521942335
+step=459, time=0.000459, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.255374618e+37, Vphase=5521942335
+step=460, time=0.00046, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.25683857e+37, Vphase=5521942335
+step=461, time=0.000461, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.258297069e+37, Vphase=5521942335
+step=462, time=0.000462, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.259750144e+37, Vphase=5521942335
+step=463, time=0.000463, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.261197827e+37, Vphase=5521942335
+step=464, time=0.000464, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.262640148e+37, Vphase=5521942335
+step=465, time=0.000465, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.264077137e+37, Vphase=5521942335
+step=466, time=0.000466, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.265508824e+37, Vphase=5521942335
+step=467, time=0.000467, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.266935239e+37, Vphase=5521942335
+step=468, time=0.000468, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.268356411e+37, Vphase=5521942335
+step=469, time=0.000469, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.269772369e+37, Vphase=5521942335
+step=470, time=0.00047, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.271183143e+37, Vphase=5521942335
+step=471, time=0.000471, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.272588761e+37, Vphase=5521942335
+step=472, time=0.000472, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.273989253e+37, Vphase=5521942335
+step=473, time=0.000473, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.275384645e+37, Vphase=5521942335
+step=474, time=0.000474, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.276774967e+37, Vphase=5521942335
+step=475, time=0.000475, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.278160246e+37, Vphase=5521942335
+  Writing plotfile plt00475
+step=476, time=0.000476, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.279540511e+37, Vphase=5521942335
+step=477, time=0.000477, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.280915788e+37, Vphase=5521942335
+step=478, time=0.000478, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.282286106e+37, Vphase=5521942335
+step=479, time=0.000479, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.283651491e+37, Vphase=5521942335
+step=480, time=0.00048, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.28501197e+37, Vphase=5521942335
+step=481, time=0.000481, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.286367571e+37, Vphase=5521942335
+step=482, time=0.000482, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.287718319e+37, Vphase=5521942335
+step=483, time=0.000483, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.289064241e+37, Vphase=5521942335
+step=484, time=0.000484, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.290405363e+37, Vphase=5521942335
+step=485, time=0.000485, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.291741711e+37, Vphase=5521942335
+step=486, time=0.000486, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.293073312e+37, Vphase=5521942335
+step=487, time=0.000487, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.29440019e+37, Vphase=5521942335
+step=488, time=0.000488, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.295722371e+37, Vphase=5521942335
+step=489, time=0.000489, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.297039881e+37, Vphase=5521942335
+step=490, time=0.00049, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.298352744e+37, Vphase=5521942335
+step=491, time=0.000491, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.299660985e+37, Vphase=5521942335
+step=492, time=0.000492, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.30096463e+37, Vphase=5521942335
+step=493, time=0.000493, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.302263702e+37, Vphase=5521942335
+step=494, time=0.000494, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.303558225e+37, Vphase=5521942335
+step=495, time=0.000495, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.304848225e+37, Vphase=5521942335
+step=496, time=0.000496, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.306133725e+37, Vphase=5521942335
+step=497, time=0.000497, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.307414749e+37, Vphase=5521942335
+step=498, time=0.000498, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.308691321e+37, Vphase=5521942335
+step=499, time=0.000499, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.309963464e+37, Vphase=5521942335
+step=500, time=0.0005, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.311231201e+37, Vphase=5521942335
+  Writing plotfile plt00500
+step=501, time=0.000501, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.312494556e+37, Vphase=5521942335
+step=502, time=0.000502, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.313753551e+37, Vphase=5521942335
+step=503, time=0.000503, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.31500821e+37, Vphase=5521942335
+step=504, time=0.000504, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.316258556e+37, Vphase=5521942335
+step=505, time=0.000505, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.31750461e+37, Vphase=5521942335
+step=506, time=0.000506, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.318746395e+37, Vphase=5521942335
+step=507, time=0.000507, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.319983933e+37, Vphase=5521942335
+step=508, time=0.000508, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.321217247e+37, Vphase=5521942335
+step=509, time=0.000509, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.322446358e+37, Vphase=5521942335
+step=510, time=0.00051, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.323671288e+37, Vphase=5521942335
+step=511, time=0.000511, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.324892058e+37, Vphase=5521942335
+step=512, time=0.000512, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.326108691e+37, Vphase=5521942335
+step=513, time=0.000513, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.327321207e+37, Vphase=5521942335
+step=514, time=0.000514, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.328529628e+37, Vphase=5521942335
+step=515, time=0.000515, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.329733974e+37, Vphase=5521942335
+step=516, time=0.000516, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.330934267e+37, Vphase=5521942335
+step=517, time=0.000517, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.332130527e+37, Vphase=5521942335
+step=518, time=0.000518, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.333322774e+37, Vphase=5521942335
+step=519, time=0.000519, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.33451103e+37, Vphase=5521942335
+step=520, time=0.00052, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.335695314e+37, Vphase=5521942335
+step=521, time=0.000521, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.336875647e+37, Vphase=5521942335
+step=522, time=0.000522, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.338052049e+37, Vphase=5521942335
+step=523, time=0.000523, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.339224539e+37, Vphase=5521942335
+step=524, time=0.000524, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.340393137e+37, Vphase=5521942335
+step=525, time=0.000525, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.341557863e+37, Vphase=5521942335
+  Writing plotfile plt00525
+step=526, time=0.000526, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.342718736e+37, Vphase=5521942335
+step=527, time=0.000527, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.343875777e+37, Vphase=5521942335
+step=528, time=0.000528, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.345029003e+37, Vphase=5521942335
+step=529, time=0.000529, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.346178434e+37, Vphase=5521942335
+step=530, time=0.00053, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.347324089e+37, Vphase=5521942335
+step=531, time=0.000531, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.348465987e+37, Vphase=5521942335
+step=532, time=0.000532, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.349604147e+37, Vphase=5521942335
+step=533, time=0.000533, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.350738587e+37, Vphase=5521942335
+step=534, time=0.000534, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.351869325e+37, Vphase=5521942335
+step=535, time=0.000535, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.35299638e+37, Vphase=5521942335
+step=536, time=0.000536, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.35411977e+37, Vphase=5521942335
+step=537, time=0.000537, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.355239514e+37, Vphase=5521942335
+step=538, time=0.000538, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.356355629e+37, Vphase=5521942335
+step=539, time=0.000539, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.357468133e+37, Vphase=5521942335
+step=540, time=0.00054, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.358577043e+37, Vphase=5521942335
+step=541, time=0.000541, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.359682378e+37, Vphase=5521942335
+step=542, time=0.000542, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.360784155e+37, Vphase=5521942335
+step=543, time=0.000543, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.361882391e+37, Vphase=5521942335
+step=544, time=0.000544, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.362977104e+37, Vphase=5521942335
+step=545, time=0.000545, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.36406831e+37, Vphase=5521942335
+step=546, time=0.000546, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.365156028e+37, Vphase=5521942335
+step=547, time=0.000547, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.366240272e+37, Vphase=5521942335
+step=548, time=0.000548, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.367321062e+37, Vphase=5521942335
+step=549, time=0.000549, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.368398412e+37, Vphase=5521942335
+step=550, time=0.00055, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.369472341e+37, Vphase=5521942335
+  Writing plotfile plt00550
+step=551, time=0.000551, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.370542864e+37, Vphase=5521942335
+step=552, time=0.000552, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.371609997e+37, Vphase=5521942335
+step=553, time=0.000553, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.372673757e+37, Vphase=5521942335
+step=554, time=0.000554, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.373734161e+37, Vphase=5521942335
+step=555, time=0.000555, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.374791224e+37, Vphase=5521942335
+step=556, time=0.000556, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.375844962e+37, Vphase=5521942335
+step=557, time=0.000557, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.376895391e+37, Vphase=5521942335
+step=558, time=0.000558, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.377942527e+37, Vphase=5521942335
+step=559, time=0.000559, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.378986385e+37, Vphase=5521942335
+step=560, time=0.00056, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.380026982e+37, Vphase=5521942335
+step=561, time=0.000561, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.381064332e+37, Vphase=5521942335
+step=562, time=0.000562, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.38209845e+37, Vphase=5521942335
+step=563, time=0.000563, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.383129353e+37, Vphase=5521942335
+step=564, time=0.000564, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.384157055e+37, Vphase=5521942335
+step=565, time=0.000565, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.385181572e+37, Vphase=5521942335
+step=566, time=0.000566, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.386202918e+37, Vphase=5521942335
+step=567, time=0.000567, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.387221108e+37, Vphase=5521942335
+step=568, time=0.000568, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.388236157e+37, Vphase=5521942335
+step=569, time=0.000569, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.38924808e+37, Vphase=5521942335
+step=570, time=0.00057, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.390256891e+37, Vphase=5521942335
+step=571, time=0.000571, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.391262605e+37, Vphase=5521942335
+step=572, time=0.000572, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.392265236e+37, Vphase=5521942335
+step=573, time=0.000573, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.393264799e+37, Vphase=5521942335
+step=574, time=0.000574, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.394261307e+37, Vphase=5521942335
+step=575, time=0.000575, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.395254776e+37, Vphase=5521942335
+  Writing plotfile plt00575
+step=576, time=0.000576, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.396245218e+37, Vphase=5521942335
+step=577, time=0.000577, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.397232648e+37, Vphase=5521942335
+step=578, time=0.000578, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.39821708e+37, Vphase=5521942335
+step=579, time=0.000579, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.399198528e+37, Vphase=5521942335
+step=580, time=0.00058, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.400177005e+37, Vphase=5521942335
+step=581, time=0.000581, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.401152525e+37, Vphase=5521942335
+step=582, time=0.000582, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.402125102e+37, Vphase=5521942335
+step=583, time=0.000583, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.403094748e+37, Vphase=5521942335
+step=584, time=0.000584, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.404061478e+37, Vphase=5521942335
+step=585, time=0.000585, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.405025304e+37, Vphase=5521942335
+step=586, time=0.000586, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.40598624e+37, Vphase=5521942335
+step=587, time=0.000587, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.406944299e+37, Vphase=5521942335
+step=588, time=0.000588, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.407899494e+37, Vphase=5521942335
+step=589, time=0.000589, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.408851838e+37, Vphase=5521942335
+step=590, time=0.00059, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.409801344e+37, Vphase=5521942335
+step=591, time=0.000591, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.410748024e+37, Vphase=5521942335
+step=592, time=0.000592, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.411691892e+37, Vphase=5521942335
+step=593, time=0.000593, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.41263296e+37, Vphase=5521942335
+step=594, time=0.000594, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.413571241e+37, Vphase=5521942335
+step=595, time=0.000595, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.414506746e+37, Vphase=5521942335
+step=596, time=0.000596, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.415439489e+37, Vphase=5521942335
+step=597, time=0.000597, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.416369482e+37, Vphase=5521942335
+step=598, time=0.000598, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.417296737e+37, Vphase=5521942335
+step=599, time=0.000599, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.418221267e+37, Vphase=5521942335
+step=600, time=0.0006, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.419143083e+37, Vphase=5521942335
+  Writing plotfile plt00600
+step=601, time=0.000601, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.420062197e+37, Vphase=5521942335
+step=602, time=0.000602, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.420978622e+37, Vphase=5521942335
+step=603, time=0.000603, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.421892369e+37, Vphase=5521942335
+step=604, time=0.000604, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.422803451e+37, Vphase=5521942335
+step=605, time=0.000605, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.423711878e+37, Vphase=5521942335
+step=606, time=0.000606, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.424617664e+37, Vphase=5521942335
+step=607, time=0.000607, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.425520818e+37, Vphase=5521942335
+step=608, time=0.000608, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.426421354e+37, Vphase=5521942335
+step=609, time=0.000609, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.427319281e+37, Vphase=5521942335
+step=610, time=0.00061, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.428214613e+37, Vphase=5521942335
+step=611, time=0.000611, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.42910736e+37, Vphase=5521942335
+step=612, time=0.000612, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.429997533e+37, Vphase=5521942335
+step=613, time=0.000613, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.430885144e+37, Vphase=5521942335
+step=614, time=0.000614, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.431770203e+37, Vphase=5521942335
+step=615, time=0.000615, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.432652723e+37, Vphase=5521942335
+step=616, time=0.000616, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.433532713e+37, Vphase=5521942335
+step=617, time=0.000617, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.434410186e+37, Vphase=5521942335
+step=618, time=0.000618, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.435285151e+37, Vphase=5521942335
+step=619, time=0.000619, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.436157619e+37, Vphase=5521942335
+step=620, time=0.00062, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.437027602e+37, Vphase=5521942335
+step=621, time=0.000621, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.43789511e+37, Vphase=5521942335
+step=622, time=0.000622, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.438760153e+37, Vphase=5521942335
+step=623, time=0.000623, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.439622743e+37, Vphase=5521942335
+step=624, time=0.000624, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.44048289e+37, Vphase=5521942335
+step=625, time=0.000625, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.441340604e+37, Vphase=5521942335
+  Writing plotfile plt00625
+step=626, time=0.000626, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.442195895e+37, Vphase=5521942335
+step=627, time=0.000627, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.443048775e+37, Vphase=5521942335
+step=628, time=0.000628, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.443899252e+37, Vphase=5521942335
+step=629, time=0.000629, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.444747338e+37, Vphase=5521942335
+step=630, time=0.00063, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.445593043e+37, Vphase=5521942335
+step=631, time=0.000631, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.446436376e+37, Vphase=5521942335
+step=632, time=0.000632, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.447277348e+37, Vphase=5521942335
+step=633, time=0.000633, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.448115969e+37, Vphase=5521942335
+step=634, time=0.000634, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.448952248e+37, Vphase=5521942335
+step=635, time=0.000635, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.449786196e+37, Vphase=5521942335
+step=636, time=0.000636, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.450617822e+37, Vphase=5521942335
+step=637, time=0.000637, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.451447136e+37, Vphase=5521942335
+step=638, time=0.000638, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.452274148e+37, Vphase=5521942335
+step=639, time=0.000639, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.453098868e+37, Vphase=5521942335
+step=640, time=0.00064, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.453921304e+37, Vphase=5521942335
+step=641, time=0.000641, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.454741467e+37, Vphase=5521942335
+step=642, time=0.000642, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.455559366e+37, Vphase=5521942335
+step=643, time=0.000643, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.45637501e+37, Vphase=5521942335
+step=644, time=0.000644, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.457188409e+37, Vphase=5521942335
+step=645, time=0.000645, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.457999573e+37, Vphase=5521942335
+step=646, time=0.000646, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.458808509e+37, Vphase=5521942335
+step=647, time=0.000647, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.459615229e+37, Vphase=5521942335
+step=648, time=0.000648, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.46041974e+37, Vphase=5521942335
+step=649, time=0.000649, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.461222052e+37, Vphase=5521942335
+step=650, time=0.00065, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.462022173e+37, Vphase=5521942335
+  Writing plotfile plt00650
+step=651, time=0.000651, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.462820114e+37, Vphase=5521942335
+step=652, time=0.000652, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.463615883e+37, Vphase=5521942335
+step=653, time=0.000653, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.464409489e+37, Vphase=5521942335
+step=654, time=0.000654, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.46520094e+37, Vphase=5521942335
+step=655, time=0.000655, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.465990246e+37, Vphase=5521942335
+step=656, time=0.000656, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.466777415e+37, Vphase=5521942335
+step=657, time=0.000657, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.467562456e+37, Vphase=5521942335
+step=658, time=0.000658, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.468345378e+37, Vphase=5521942335
+step=659, time=0.000659, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.469126189e+37, Vphase=5521942335
+step=660, time=0.00066, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.469904897e+37, Vphase=5521942335
+step=661, time=0.000661, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.470681513e+37, Vphase=5521942335
+step=662, time=0.000662, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.471456043e+37, Vphase=5521942335
+step=663, time=0.000663, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.472228496e+37, Vphase=5521942335
+step=664, time=0.000664, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.472998881e+37, Vphase=5521942335
+step=665, time=0.000665, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.473767206e+37, Vphase=5521942335
+step=666, time=0.000666, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.474533479e+37, Vphase=5521942335
+step=667, time=0.000667, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.475297709e+37, Vphase=5521942335
+step=668, time=0.000668, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.476059904e+37, Vphase=5521942335
+step=669, time=0.000669, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.476820071e+37, Vphase=5521942335
+step=670, time=0.00067, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.477578219e+37, Vphase=5521942335
+step=671, time=0.000671, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.478334357e+37, Vphase=5521942335
+step=672, time=0.000672, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.479088492e+37, Vphase=5521942335
+step=673, time=0.000673, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.479840631e+37, Vphase=5521942335
+step=674, time=0.000674, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.480590784e+37, Vphase=5521942335
+step=675, time=0.000675, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.481338958e+37, Vphase=5521942335
+  Writing plotfile plt00675
+step=676, time=0.000676, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.48208516e+37, Vphase=5521942335
+step=677, time=0.000677, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.482829399e+37, Vphase=5521942335
+step=678, time=0.000678, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.483571683e+37, Vphase=5521942335
+step=679, time=0.000679, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.484312018e+37, Vphase=5521942335
+step=680, time=0.00068, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.485050413e+37, Vphase=5521942335
+step=681, time=0.000681, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.485786876e+37, Vphase=5521942335
+step=682, time=0.000682, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.486521414e+37, Vphase=5521942335
+step=683, time=0.000683, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.487254034e+37, Vphase=5521942335
+step=684, time=0.000684, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.487984744e+37, Vphase=5521942335
+step=685, time=0.000685, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.488713552e+37, Vphase=5521942335
+step=686, time=0.000686, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.489440465e+37, Vphase=5521942335
+step=687, time=0.000687, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.49016549e+37, Vphase=5521942335
+step=688, time=0.000688, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.490888635e+37, Vphase=5521942335
+step=689, time=0.000689, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.491609908e+37, Vphase=5521942335
+step=690, time=0.00069, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.492329314e+37, Vphase=5521942335
+step=691, time=0.000691, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.493046863e+37, Vphase=5521942335
+step=692, time=0.000692, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.49376256e+37, Vphase=5521942335
+step=693, time=0.000693, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.494476413e+37, Vphase=5521942335
+step=694, time=0.000694, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.495188429e+37, Vphase=5521942335
+step=695, time=0.000695, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.495898616e+37, Vphase=5521942335
+step=696, time=0.000696, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.49660698e+37, Vphase=5521942335
+step=697, time=0.000697, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.497313528e+37, Vphase=5521942335
+step=698, time=0.000698, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.498018268e+37, Vphase=5521942335
+step=699, time=0.000699, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.498721206e+37, Vphase=5521942335
+step=700, time=0.0007, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.499422349e+37, Vphase=5521942335
+  Writing plotfile plt00700
+step=701, time=0.000701, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.500121704e+37, Vphase=5521942335
+step=702, time=0.000702, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.500819278e+37, Vphase=5521942335
+step=703, time=0.000703, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.501515078e+37, Vphase=5521942335
+step=704, time=0.000704, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.50220911e+37, Vphase=5521942335
+step=705, time=0.000705, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.502901381e+37, Vphase=5521942335
+step=706, time=0.000706, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.503591899e+37, Vphase=5521942335
+step=707, time=0.000707, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.504280669e+37, Vphase=5521942335
+step=708, time=0.000708, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.504967698e+37, Vphase=5521942335
+step=709, time=0.000709, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.505652993e+37, Vphase=5521942335
+step=710, time=0.00071, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.50633656e+37, Vphase=5521942335
+step=711, time=0.000711, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.507018406e+37, Vphase=5521942335
+step=712, time=0.000712, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.507698538e+37, Vphase=5521942335
+step=713, time=0.000713, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.508376961e+37, Vphase=5521942335
+step=714, time=0.000714, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.509053683e+37, Vphase=5521942335
+step=715, time=0.000715, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.50972871e+37, Vphase=5521942335
+step=716, time=0.000716, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.510402047e+37, Vphase=5521942335
+step=717, time=0.000717, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.511073702e+37, Vphase=5521942335
+step=718, time=0.000718, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.511743681e+37, Vphase=5521942335
+step=719, time=0.000719, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.512411989e+37, Vphase=5521942335
+step=720, time=0.00072, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.513078634e+37, Vphase=5521942335
+step=721, time=0.000721, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.513743621e+37, Vphase=5521942335
+step=722, time=0.000722, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.514406956e+37, Vphase=5521942335
+step=723, time=0.000723, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.515068647e+37, Vphase=5521942335
+step=724, time=0.000724, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.515728698e+37, Vphase=5521942335
+step=725, time=0.000725, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.516387116e+37, Vphase=5521942335
+  Writing plotfile plt00725
+step=726, time=0.000726, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.517043907e+37, Vphase=5521942335
+step=727, time=0.000727, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.517699077e+37, Vphase=5521942335
+step=728, time=0.000728, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.518352632e+37, Vphase=5521942335
+step=729, time=0.000729, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.519004577e+37, Vphase=5521942335
+step=730, time=0.00073, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.51965492e+37, Vphase=5521942335
+step=731, time=0.000731, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.520303665e+37, Vphase=5521942335
+step=732, time=0.000732, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.520950819e+37, Vphase=5521942335
+step=733, time=0.000733, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.521596387e+37, Vphase=5521942335
+step=734, time=0.000734, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.522240376e+37, Vphase=5521942335
+step=735, time=0.000735, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.52288279e+37, Vphase=5521942335
+step=736, time=0.000736, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.523523637e+37, Vphase=5521942335
+step=737, time=0.000737, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.524162921e+37, Vphase=5521942335
+step=738, time=0.000738, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.524800648e+37, Vphase=5521942335
+step=739, time=0.000739, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.525436824e+37, Vphase=5521942335
+step=740, time=0.00074, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.526071454e+37, Vphase=5521942335
+step=741, time=0.000741, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.526704544e+37, Vphase=5521942335
+step=742, time=0.000742, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.527336101e+37, Vphase=5521942335
+step=743, time=0.000743, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.527966128e+37, Vphase=5521942335
+step=744, time=0.000744, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.528594632e+37, Vphase=5521942335
+step=745, time=0.000745, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.529221619e+37, Vphase=5521942335
+step=746, time=0.000746, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.529847093e+37, Vphase=5521942335
+step=747, time=0.000747, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.530471061e+37, Vphase=5521942335
+step=748, time=0.000748, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.531093527e+37, Vphase=5521942335
+step=749, time=0.000749, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.531714497e+37, Vphase=5521942335
+step=750, time=0.00075, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.532333977e+37, Vphase=5521942335
+  Writing plotfile plt00750
+step=751, time=0.000751, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.532951971e+37, Vphase=5521942335
+step=752, time=0.000752, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.533568486e+37, Vphase=5521942335
+step=753, time=0.000753, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.534183525e+37, Vphase=5521942335
+step=754, time=0.000754, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.534797096e+37, Vphase=5521942335
+step=755, time=0.000755, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.535409202e+37, Vphase=5521942335
+step=756, time=0.000756, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.536019849e+37, Vphase=5521942335
+step=757, time=0.000757, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.536629043e+37, Vphase=5521942335
+step=758, time=0.000758, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.537236788e+37, Vphase=5521942335
+step=759, time=0.000759, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.537843089e+37, Vphase=5521942335
+step=760, time=0.00076, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.538447952e+37, Vphase=5521942335
+step=761, time=0.000761, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.539051382e+37, Vphase=5521942335
+step=762, time=0.000762, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.539653384e+37, Vphase=5521942335
+step=763, time=0.000763, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.540253963e+37, Vphase=5521942335
+step=764, time=0.000764, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.540853123e+37, Vphase=5521942335
+step=765, time=0.000765, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.541450871e+37, Vphase=5521942335
+step=766, time=0.000766, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.54204721e+37, Vphase=5521942335
+step=767, time=0.000767, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.542642146e+37, Vphase=5521942335
+step=768, time=0.000768, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.543235684e+37, Vphase=5521942335
+step=769, time=0.000769, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.543827828e+37, Vphase=5521942335
+step=770, time=0.00077, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.544418584e+37, Vphase=5521942335
+step=771, time=0.000771, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.545007956e+37, Vphase=5521942335
+step=772, time=0.000772, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.54559595e+37, Vphase=5521942335
+step=773, time=0.000773, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.546182569e+37, Vphase=5521942335
+step=774, time=0.000774, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.546767819e+37, Vphase=5521942335
+step=775, time=0.000775, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.547351705e+37, Vphase=5521942335
+  Writing plotfile plt00775
+step=776, time=0.000776, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.547934231e+37, Vphase=5521942335
+step=777, time=0.000777, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.548515401e+37, Vphase=5521942335
+step=778, time=0.000778, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.549095222e+37, Vphase=5521942335
+step=779, time=0.000779, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.549673697e+37, Vphase=5521942335
+step=780, time=0.00078, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.550250831e+37, Vphase=5521942335
+step=781, time=0.000781, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.550826628e+37, Vphase=5521942335
+step=782, time=0.000782, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.551401094e+37, Vphase=5521942335
+step=783, time=0.000783, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.551974232e+37, Vphase=5521942335
+step=784, time=0.000784, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.552546048e+37, Vphase=5521942335
+step=785, time=0.000785, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.553116546e+37, Vphase=5521942335
+step=786, time=0.000786, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.55368573e+37, Vphase=5521942335
+step=787, time=0.000787, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.554253606e+37, Vphase=5521942335
+step=788, time=0.000788, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.554820176e+37, Vphase=5521942335
+step=789, time=0.000789, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.555385447e+37, Vphase=5521942335
+step=790, time=0.00079, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.555949421e+37, Vphase=5521942335
+step=791, time=0.000791, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.556512105e+37, Vphase=5521942335
+step=792, time=0.000792, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.557073501e+37, Vphase=5521942335
+step=793, time=0.000793, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.557633615e+37, Vphase=5521942335
+step=794, time=0.000794, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.558192451e+37, Vphase=5521942335
+step=795, time=0.000795, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.558750013e+37, Vphase=5521942335
+step=796, time=0.000796, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.559306306e+37, Vphase=5521942335
+step=797, time=0.000797, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.559861333e+37, Vphase=5521942335
+step=798, time=0.000798, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.5604151e+37, Vphase=5521942335
+step=799, time=0.000799, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.56096761e+37, Vphase=5521942335
+step=800, time=0.0008, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.561518867e+37, Vphase=5521942335
+  Writing plotfile plt00800
+step=801, time=0.000801, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.562068876e+37, Vphase=5521942335
+step=802, time=0.000802, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.562617642e+37, Vphase=5521942335
+step=803, time=0.000803, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.563165167e+37, Vphase=5521942335
+step=804, time=0.000804, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.563711457e+37, Vphase=5521942335
+step=805, time=0.000805, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.564256515e+37, Vphase=5521942335
+step=806, time=0.000806, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.564800345e+37, Vphase=5521942335
+step=807, time=0.000807, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.565342953e+37, Vphase=5521942335
+step=808, time=0.000808, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.565884341e+37, Vphase=5521942335
+step=809, time=0.000809, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.566424514e+37, Vphase=5521942335
+step=810, time=0.00081, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.566963476e+37, Vphase=5521942335
+step=811, time=0.000811, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.567501231e+37, Vphase=5521942335
+step=812, time=0.000812, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.568037783e+37, Vphase=5521942335
+step=813, time=0.000813, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.568573135e+37, Vphase=5521942335
+step=814, time=0.000814, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.569107293e+37, Vphase=5521942335
+step=815, time=0.000815, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.569640259e+37, Vphase=5521942335
+step=816, time=0.000816, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.570172039e+37, Vphase=5521942335
+step=817, time=0.000817, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.570702635e+37, Vphase=5521942335
+step=818, time=0.000818, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.571232051e+37, Vphase=5521942335
+step=819, time=0.000819, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.571760292e+37, Vphase=5521942335
+step=820, time=0.00082, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.572287362e+37, Vphase=5521942335
+step=821, time=0.000821, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.572813264e+37, Vphase=5521942335
+step=822, time=0.000822, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.573338002e+37, Vphase=5521942335
+step=823, time=0.000823, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.573861579e+37, Vphase=5521942335
+step=824, time=0.000824, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.574384001e+37, Vphase=5521942335
+step=825, time=0.000825, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.57490527e+37, Vphase=5521942335
+  Writing plotfile plt00825
+step=826, time=0.000826, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.57542539e+37, Vphase=5521942335
+step=827, time=0.000827, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.575944365e+37, Vphase=5521942335
+step=828, time=0.000828, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.576462199e+37, Vphase=5521942335
+step=829, time=0.000829, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.576978896e+37, Vphase=5521942335
+step=830, time=0.00083, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.577494458e+37, Vphase=5521942335
+step=831, time=0.000831, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.57800889e+37, Vphase=5521942335
+step=832, time=0.000832, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.578522196e+37, Vphase=5521942335
+step=833, time=0.000833, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.579034379e+37, Vphase=5521942335
+step=834, time=0.000834, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.579545443e+37, Vphase=5521942335
+step=835, time=0.000835, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.580055391e+37, Vphase=5521942335
+step=836, time=0.000836, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.580564228e+37, Vphase=5521942335
+step=837, time=0.000837, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.581071956e+37, Vphase=5521942335
+step=838, time=0.000838, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.581578579e+37, Vphase=5521942335
+step=839, time=0.000839, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.582084101e+37, Vphase=5521942335
+step=840, time=0.00084, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.582588525e+37, Vphase=5521942335
+step=841, time=0.000841, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.583091855e+37, Vphase=5521942335
+step=842, time=0.000842, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.583594094e+37, Vphase=5521942335
+step=843, time=0.000843, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.584095246e+37, Vphase=5521942335
+step=844, time=0.000844, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.584595314e+37, Vphase=5521942335
+step=845, time=0.000845, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.585094303e+37, Vphase=5521942335
+step=846, time=0.000846, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.585592214e+37, Vphase=5521942335
+step=847, time=0.000847, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.586089052e+37, Vphase=5521942335
+step=848, time=0.000848, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.58658482e+37, Vphase=5521942335
+step=849, time=0.000849, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.587079522e+37, Vphase=5521942335
+step=850, time=0.00085, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.58757316e+37, Vphase=5521942335
+  Writing plotfile plt00850
+step=851, time=0.000851, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.588065739e+37, Vphase=5521942335
+step=852, time=0.000852, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.588557261e+37, Vphase=5521942335
+step=853, time=0.000853, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.589047731e+37, Vphase=5521942335
+step=854, time=0.000854, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.58953715e+37, Vphase=5521942335
+step=855, time=0.000855, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.590025523e+37, Vphase=5521942335
+step=856, time=0.000856, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.590512854e+37, Vphase=5521942335
+step=857, time=0.000857, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.590999144e+37, Vphase=5521942335
+step=858, time=0.000858, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.591484398e+37, Vphase=5521942335
+step=859, time=0.000859, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.591968619e+37, Vphase=5521942335
+step=860, time=0.00086, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.592451809e+37, Vphase=5521942335
+step=861, time=0.000861, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.592933973e+37, Vphase=5521942335
+step=862, time=0.000862, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.593415113e+37, Vphase=5521942335
+step=863, time=0.000863, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.593895233e+37, Vphase=5521942335
+step=864, time=0.000864, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.594374336e+37, Vphase=5521942335
+step=865, time=0.000865, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.594852425e+37, Vphase=5521942335
+step=866, time=0.000866, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.595329503e+37, Vphase=5521942335
+step=867, time=0.000867, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.595805574e+37, Vphase=5521942335
+step=868, time=0.000868, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.59628064e+37, Vphase=5521942335
+step=869, time=0.000869, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.596754705e+37, Vphase=5521942335
+step=870, time=0.00087, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.597227771e+37, Vphase=5521942335
+step=871, time=0.000871, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.597699842e+37, Vphase=5521942335
+step=872, time=0.000872, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.598170922e+37, Vphase=5521942335
+step=873, time=0.000873, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.598641012e+37, Vphase=5521942335
+step=874, time=0.000874, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.599110116e+37, Vphase=5521942335
+step=875, time=0.000875, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.599578237e+37, Vphase=5521942335
+  Writing plotfile plt00875
+step=876, time=0.000876, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.600045379e+37, Vphase=5521942335
+step=877, time=0.000877, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.600511544e+37, Vphase=5521942335
+step=878, time=0.000878, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.600976735e+37, Vphase=5521942335
+step=879, time=0.000879, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.601440955e+37, Vphase=5521942335
+step=880, time=0.00088, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.601904207e+37, Vphase=5521942335
+step=881, time=0.000881, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.602366495e+37, Vphase=5521942335
+step=882, time=0.000882, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.60282782e+37, Vphase=5521942335
+step=883, time=0.000883, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.603288187e+37, Vphase=5521942335
+step=884, time=0.000884, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.603747598e+37, Vphase=5521942335
+step=885, time=0.000885, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.604206055e+37, Vphase=5521942335
+step=886, time=0.000886, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.604663563e+37, Vphase=5521942335
+step=887, time=0.000887, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.605120123e+37, Vphase=5521942335
+step=888, time=0.000888, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.605575739e+37, Vphase=5521942335
+step=889, time=0.000889, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.606030413e+37, Vphase=5521942335
+step=890, time=0.00089, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.606484149e+37, Vphase=5521942335
+step=891, time=0.000891, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.606936949e+37, Vphase=5521942335
+step=892, time=0.000892, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.607388816e+37, Vphase=5521942335
+step=893, time=0.000893, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.607839753e+37, Vphase=5521942335
+step=894, time=0.000894, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.608289763e+37, Vphase=5521942335
+step=895, time=0.000895, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.608738848e+37, Vphase=5521942335
+step=896, time=0.000896, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.609187011e+37, Vphase=5521942335
+step=897, time=0.000897, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.609634256e+37, Vphase=5521942335
+step=898, time=0.000898, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.610080584e+37, Vphase=5521942335
+step=899, time=0.000899, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.610525999e+37, Vphase=5521942335
+step=900, time=0.0009, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.610970504e+37, Vphase=5521942335
+  Writing plotfile plt00900
+step=901, time=0.000901, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.6114141e+37, Vphase=5521942335
+step=902, time=0.000902, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.611856792e+37, Vphase=5521942335
+step=903, time=0.000903, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.612298581e+37, Vphase=5521942335
+step=904, time=0.000904, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.61273947e+37, Vphase=5521942335
+step=905, time=0.000905, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.613179462e+37, Vphase=5521942335
+step=906, time=0.000906, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.61361856e+37, Vphase=5521942335
+step=907, time=0.000907, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.614056767e+37, Vphase=5521942335
+step=908, time=0.000908, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.614494084e+37, Vphase=5521942335
+step=909, time=0.000909, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.614930515e+37, Vphase=5521942335
+step=910, time=0.00091, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.615366062e+37, Vphase=5521942335
+step=911, time=0.000911, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.615800728e+37, Vphase=5521942335
+step=912, time=0.000912, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.616234515e+37, Vphase=5521942335
+step=913, time=0.000913, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.616667427e+37, Vphase=5521942335
+step=914, time=0.000914, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.617099466e+37, Vphase=5521942335
+step=915, time=0.000915, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.617530633e+37, Vphase=5521942335
+step=916, time=0.000916, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.617960933e+37, Vphase=5521942335
+step=917, time=0.000917, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.618390367e+37, Vphase=5521942335
+step=918, time=0.000918, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.618818938e+37, Vphase=5521942335
+step=919, time=0.000919, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.619246649e+37, Vphase=5521942335
+step=920, time=0.00092, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.619673502e+37, Vphase=5521942335
+step=921, time=0.000921, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.620099499e+37, Vphase=5521942335
+step=922, time=0.000922, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.620524644e+37, Vphase=5521942335
+step=923, time=0.000923, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.620948938e+37, Vphase=5521942335
+step=924, time=0.000924, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.621372384e+37, Vphase=5521942335
+step=925, time=0.000925, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.621794985e+37, Vphase=5521942335
+  Writing plotfile plt00925
+step=926, time=0.000926, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.622216743e+37, Vphase=5521942335
+step=927, time=0.000927, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.622637661e+37, Vphase=5521942335
+step=928, time=0.000928, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.623057741e+37, Vphase=5521942335
+step=929, time=0.000929, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.623476985e+37, Vphase=5521942335
+step=930, time=0.00093, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.623895396e+37, Vphase=5521942335
+step=931, time=0.000931, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.624312977e+37, Vphase=5521942335
+step=932, time=0.000932, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.624729729e+37, Vphase=5521942335
+step=933, time=0.000933, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.625145656e+37, Vphase=5521942335
+step=934, time=0.000934, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.625560759e+37, Vphase=5521942335
+step=935, time=0.000935, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.625975041e+37, Vphase=5521942335
+step=936, time=0.000936, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.626388504e+37, Vphase=5521942335
+step=937, time=0.000937, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.626801151e+37, Vphase=5521942335
+step=938, time=0.000938, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.627212984e+37, Vphase=5521942335
+step=939, time=0.000939, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.627624006e+37, Vphase=5521942335
+step=940, time=0.00094, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.628034218e+37, Vphase=5521942335
+step=941, time=0.000941, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.628443624e+37, Vphase=5521942335
+step=942, time=0.000942, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.628852225e+37, Vphase=5521942335
+step=943, time=0.000943, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.629260023e+37, Vphase=5521942335
+step=944, time=0.000944, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.629667022e+37, Vphase=5521942335
+step=945, time=0.000945, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.630073223e+37, Vphase=5521942335
+step=946, time=0.000946, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.630478629e+37, Vphase=5521942335
+step=947, time=0.000947, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.630883242e+37, Vphase=5521942335
+step=948, time=0.000948, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.631287064e+37, Vphase=5521942335
+step=949, time=0.000949, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.631690097e+37, Vphase=5521942335
+step=950, time=0.00095, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.632092344e+37, Vphase=5521942335
+  Writing plotfile plt00950
+step=951, time=0.000951, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.632493807e+37, Vphase=5521942335
+step=952, time=0.000952, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.632894489e+37, Vphase=5521942335
+step=953, time=0.000953, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.633294391e+37, Vphase=5521942335
+step=954, time=0.000954, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.633693515e+37, Vphase=5521942335
+step=955, time=0.000955, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.634091864e+37, Vphase=5521942335
+step=956, time=0.000956, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.634489441e+37, Vphase=5521942335
+step=957, time=0.000957, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.634886246e+37, Vphase=5521942335
+step=958, time=0.000958, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.635282283e+37, Vphase=5521942335
+step=959, time=0.000959, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.635677554e+37, Vphase=5521942335
+step=960, time=0.00096, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.63607206e+37, Vphase=5521942335
+step=961, time=0.000961, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.636465805e+37, Vphase=5521942335
+step=962, time=0.000962, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.636858789e+37, Vphase=5521942335
+step=963, time=0.000963, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.637251016e+37, Vphase=5521942335
+step=964, time=0.000964, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.637642488e+37, Vphase=5521942335
+step=965, time=0.000965, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.638033205e+37, Vphase=5521942335
+step=966, time=0.000966, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.638423172e+37, Vphase=5521942335
+step=967, time=0.000967, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.638812389e+37, Vphase=5521942335
+step=968, time=0.000968, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.639200859e+37, Vphase=5521942335
+step=969, time=0.000969, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.639588584e+37, Vphase=5521942335
+step=970, time=0.00097, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.639975566e+37, Vphase=5521942335
+step=971, time=0.000971, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.640361807e+37, Vphase=5521942335
+step=972, time=0.000972, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.640747309e+37, Vphase=5521942335
+step=973, time=0.000973, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.641132075e+37, Vphase=5521942335
+step=974, time=0.000974, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.641516106e+37, Vphase=5521942335
+step=975, time=0.000975, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.641899404e+37, Vphase=5521942335
+  Writing plotfile plt00975
+step=976, time=0.000976, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.642281972e+37, Vphase=5521942335
+step=977, time=0.000977, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.642663811e+37, Vphase=5521942335
+step=978, time=0.000978, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.643044924e+37, Vphase=5521942335
+step=979, time=0.000979, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.643425312e+37, Vphase=5521942335
+step=980, time=0.00098, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.643804978e+37, Vphase=5521942335
+step=981, time=0.000981, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.644183923e+37, Vphase=5521942335
+step=982, time=0.000982, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.644562149e+37, Vphase=5521942335
+step=983, time=0.000983, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.64493966e+37, Vphase=5521942335
+step=984, time=0.000984, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.645316455e+37, Vphase=5521942335
+step=985, time=0.000985, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.645692538e+37, Vphase=5521942335
+step=986, time=0.000986, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.646067911e+37, Vphase=5521942335
+step=987, time=0.000987, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.646442575e+37, Vphase=5521942335
+step=988, time=0.000988, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.646816532e+37, Vphase=5521942335
+step=989, time=0.000989, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.647189784e+37, Vphase=5521942335
+step=990, time=0.00099, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.647562334e+37, Vphase=5521942335
+step=991, time=0.000991, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.647934183e+37, Vphase=5521942335
+step=992, time=0.000992, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.648305333e+37, Vphase=5521942335
+step=993, time=0.000993, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.648675785e+37, Vphase=5521942335
+step=994, time=0.000994, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.649045543e+37, Vphase=5521942335
+step=995, time=0.000995, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.649414608e+37, Vphase=5521942335
+step=996, time=0.000996, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.649782981e+37, Vphase=5521942335
+step=997, time=0.000997, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.650150665e+37, Vphase=5521942335
+step=998, time=0.000998, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.650517661e+37, Vphase=5521942335
+step=999, time=0.000999, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.650883972e+37, Vphase=5521942335
+step=1000, time=0.001, dt=1e-06, scaled_err=0, TrN=2.906904e+53, TrHN=4.651249598e+37, Vphase=5521942335
+  Writing plotfile plt01000
+Done. 
+Run time w/o initialization (seconds) = 30.348
+Average number of particles advanced per microsecond = 0.315
+
+
+TinyProfiler total time across processes [min...avg...max]: 32.08 ... 32.09 ... 32.09
+
+---------------------------------------------------------------------------------------------------
+Name                                                NCalls  Excl. Min  Excl. Avg  Excl. Max   Max %
+---------------------------------------------------------------------------------------------------
+amrex::ParticleToMesh                                 4001      11.24       11.3      11.36  35.40%
+FillBoundary_finish()                                 8002      5.276      5.785      6.241  19.45%
+FillBoundary_nowait()                                 8002      3.642      4.031      4.356  13.58%
+DataReducer::WriteReducedData0D()                     1000      1.302      2.226      3.968  12.37%
+Emu::post_timestep()                                  1000     0.1043      1.852      2.783   8.67%
+amrex::MeshToParticle                                 8001      1.167      1.198      1.319   4.11%
+ParticleCopyPlan::doHandShake                         1000     0.5244     0.5764     0.6328   1.97%
+ParticleContainer::addParticles                       9007     0.6083     0.6113     0.6167   1.92%
+VisMF::Write(FabArray)                                  41     0.3515     0.4031     0.5876   1.83%
+amrex::communicateParticlesStart                      1000     0.3459     0.3479     0.3505   1.09%
+WriteBinaryParticleData()                               41      0.152     0.2947     0.3303   1.03%
+ParticleContainer::SortParticlesByBin()               1001     0.2914     0.2921      0.293   0.91%
+deposit_to_mesh_atomic()                              4001      0.191     0.2092     0.2296   0.72%
+deposit_to_mesh()                                     4001     0.1812     0.1974     0.2141   0.67%
+interpolate_rhs_from_mesh()                           4000      0.166     0.1709     0.1828   0.57%
+WritePlotFile()                                         41     0.1072     0.1395     0.1699   0.53%
+WriteMultiLevelPlotfile()                               41    0.00226    0.05028      0.102   0.32%
+FabArray::setVal()                                    4002    0.09156     0.0948     0.0978   0.30%
+FlavoredNeutrinoContainer::ApplyBoundaryConditions    1000    0.06609    0.07031    0.07745   0.24%
+FlavoredNeutrinoContainer::SyncLocation               6000    0.05799    0.05827    0.05862   0.18%
+ParticleContainer::WriteParticles()                     41    0.04324     0.0457    0.05023   0.16%
+ParticleCopyPlan::build                               1000    0.04317    0.04372    0.04411   0.14%
+sort_particles()                                      1001    0.03184    0.03553    0.03918   0.12%
+ParticleContainer::Redistribute_impl()                1000    0.02683    0.02728    0.02786   0.09%
+ParticleCopyPlan::buildMPIStart                       1000    0.01112    0.01128    0.01139   0.04%
+Emu::RHS()                                            4000   0.004697   0.004994   0.005207   0.02%
+ParticleContainer::copyParticles                      9007   0.003534    0.00373   0.003927   0.01%
+FabArray<FAB>::SumBoundary()                          4001   0.002095     0.0023   0.002502   0.01%
+FabArray::FillBoundary()                              4001   0.002088   0.002215   0.002361   0.01%
+FabArray<FAB>::SumBoundary_finish()                   4001   0.001881   0.002045   0.002148   0.01%
+Emu::RHS::copy_particles()                            4000   0.001658   0.001788    0.00188   0.01%
+Emu::RHS::fill_boundaries()                           4000   0.001587   0.001721   0.001823   0.01%
+FabArray<FAB>::SumBoundary_nowait()                   4001   0.001648   0.001742   0.001807   0.01%
+Emu::RedistributeLocal()                              1000   0.000469  0.0005094  0.0005329   0.00%
+Other                                                28146     0.2042     0.2251     0.2831   0.88%
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+Name                                                NCalls  Incl. Min  Incl. Avg  Incl. Max   Max %
+---------------------------------------------------------------------------------------------------
+Emu::RHS()                                            4000      23.15      23.26      23.34  72.74%
+deposit_to_mesh()                                     4001      17.32       17.5      17.63  54.95%
+deposit_to_mesh_atomic()                              4001      17.13       17.3      17.43  54.33%
+amrex::ParticleToMesh                                 4001      16.91      17.09      17.24  53.74%
+Emu::post_timestep()                                  1000      6.483      6.559      6.664  20.77%
+FillBoundary_finish()                                 8002      5.276      5.785      6.241  19.45%
+FabArray<FAB>::SumBoundary()                          4001      5.566        5.7      5.805  18.09%
+FillBoundary_nowait()                                 8002      3.645      4.034       4.36  13.59%
+FabArray::FillBoundary()                              4001       4.05      4.128      4.218  13.15%
+Emu::RHS::fill_boundaries()                           4000      3.988      4.071      4.163  12.97%
+DataReducer::WriteReducedData0D()                     1000      1.302      2.226      3.968  12.37%
+FabArray<FAB>::SumBoundary_finish()                   4001      2.688      2.978      3.173   9.89%
+FabArray<FAB>::SumBoundary_nowait()                   4001      2.563       2.72      2.876   8.96%
+interpolate_rhs_from_mesh()                           4000      1.272      1.307      1.432   4.46%
+amrex::MeshToParticle                                 8001      1.167      1.198      1.319   4.11%
+Emu::RedistributeLocal()                              1000      1.053      1.104      1.159   3.61%
+ParticleContainer::Redistribute_impl()                1000      1.052      1.103      1.159   3.61%
+WritePlotFile()                                         41     0.8946     0.9435      1.001   3.12%
+ParticleCopyPlan::build                               1000     0.5809     0.6334     0.6901   2.15%
+ParticleContainer::copyParticles                      9007      0.651     0.6548     0.6612   2.06%
+ParticleCopyPlan::buildMPIStart                       1000     0.5355     0.5877     0.6442   2.01%
+WriteMultiLevelPlotfile()                               41     0.4245     0.4636      0.642   2.00%
+ParticleCopyPlan::doHandShake                         1000     0.5244     0.5764     0.6328   1.97%
+ParticleContainer::addParticles                       9007     0.6083     0.6113     0.6167   1.92%
+VisMF::Write(FabArray)                                  41     0.3515     0.4031     0.5876   1.83%
+WriteBinaryParticleData()                               41     0.1953     0.3404     0.3755   1.17%
+sort_particles()                                      1001     0.3637     0.3672     0.3705   1.15%
+amrex::communicateParticlesStart                      1000     0.3459     0.3479     0.3505   1.09%
+ParticleContainer::SortParticlesByBin()               1001     0.3309     0.3317     0.3327   1.04%
+Emu::RHS::copy_particles()                            4000     0.2921     0.2939     0.2959   0.92%
+FabArray::setVal()                                    4002    0.09156     0.0948     0.0978   0.30%
+FlavoredNeutrinoContainer::ApplyBoundaryConditions    1000    0.06609    0.07031    0.07745   0.24%
+FlavoredNeutrinoContainer::SyncLocation               6000    0.05799    0.05827    0.05862   0.18%
+ParticleContainer::WriteParticles()                     41    0.04324     0.0457    0.05023   0.16%
+Other                                                28146     0.2046     0.2263      0.285   0.89%
+---------------------------------------------------------------------------------------------------
+
+Unused ParmParse Variables:
+  [TOP]::collision_cfl_factor(nvals = 1)  :: [55]
+  [TOP]::flavor_cfl_factor(nvals = 1)  :: [0]
+  [TOP]::time_step_method(nvals = 1)  :: [1]
+
+Device Memory Usage:
+---------------------------------------------------------------------------------------------------------------------------
+Name                                         Nalloc  AvgMem min  AvgMem avg  AvgMem max  MaxMem min  MaxMem avg  MaxMem max
+---------------------------------------------------------------------------------------------------------------------------
+The_Arena::Initialize()                           8    1749   B    2006   B    2762   B      59 GiB      59 GiB      59 GiB
+ResizeRandomSeed                                 16      40 MiB      40 MiB      40 MiB      40 MiB      40 MiB      40 MiB
+DataReducer::WriteReducedData0D()             16008      17 KiB      17 KiB      17 KiB      12 MiB      12 MiB      12 MiB
+ParticleContainer::addParticles             2521960    2354 KiB    2354 KiB    2355 KiB    2510 KiB    2510 KiB    2510 KiB
+ParticleContainer::Redistribute_impl()           48     970   B     970   B     971   B     973 KiB     973 KiB     973 KiB
+FlavoredNeutrinoContainer::InitParticles        272     941   B    1044   B    1151   B     574 KiB     574 KiB     574 KiB
+Unprofiled                                        8     471 KiB     471 KiB     472 KiB     498 KiB     498 KiB     498 KiB
+VisMF::Write(FabArray)                       167280    4040   B    4144   B    4189   B     432 KiB     432 KiB     432 KiB
+ParticleContainer::WriteParticles()            1968      43   B      43   B      45   B     338 KiB     338 KiB     338 KiB
+WriteBinaryParticleData()                       984      31   B      34   B      42   B     221 KiB     221 KiB     221 KiB
+Emu::post_timestep()                           8000     105   B     112   B     150   B     216 KiB     216 KiB     216 KiB
+amrex::packBuffer                              3208     469   B     471   B     473   B     158 KiB     158 KiB     158 KiB
+amrex::communicateParticlesStart              11208     433   B     435   B     437   B     158 KiB     158 KiB     158 KiB
+FillBoundary_nowait()                        928248      20 KiB      20 KiB      20 KiB     134 KiB     134 KiB     134 KiB
+Redistribute_partition                        41664     156   B     157   B     161   B     109 KiB     109 KiB     109 KiB
+DenseBins<T>::buildGPU                         8184      33 KiB      33 KiB      33 KiB      36 KiB      36 KiB      36 KiB
+FillBoundary_finish()                         32016      10 KiB      10 KiB      10 KiB      21 KiB      21 KiB      21 KiB
+ParticleContainer::SortParticlesByBin()       16016      11 KiB      11 KiB      11 KiB      20 KiB      20 KiB      20 KiB
+WriteMultiLevelPlotfile()                       328      45   B      51   B      75   B    4096   B    4096   B    4096   B
+ParticleCopyPlan::buildCopiesAtomicScatter     3208      13   B      13   B      14   B    2560   B    2560   B    2560   B
+ParticleBufferMap::define                        64    1928   B    1928   B    1928   B    2048   B    2048   B    2048   B
+ParticleCopyPlan::build                       48000      39   B      40   B      43   B    1536   B    1536   B    1536   B
+---------------------------------------------------------------------------------------------------------------------------
+
+Managed Memory Usage:
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Name                                      Nalloc  Nfree  AvgMem min  AvgMem avg  AvgMem max  MaxMem min  MaxMem avg  MaxMem max  CurrentMem max
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Unprofiled                                   216     32     457 MiB     457 MiB     457 MiB     690 MiB     690 MiB     690 MiB         466 MiB
+The_Managed_Arena::Initialize()                8      8       0   B       0   B       0   B    8192 KiB    8192 KiB    8192 KiB           0   B
+FlavoredNeutrinoContainer::InitParticles     160    160     141   B     250   B     362   B     387 KiB     387 KiB     387 KiB           0   B
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Pinned Memory Usage:
+------------------------------------------------------------------------------------------------------------------------
+Name                                      Nalloc  AvgMem min  AvgMem avg  AvgMem max  MaxMem min  MaxMem avg  MaxMem max
+------------------------------------------------------------------------------------------------------------------------
+The_Pinned_Arena::Initialize()                 8       0   B       0   B       0   B    8192 KiB    8192 KiB    8192 KiB
+FillBoundary_nowait()                      96040      16 KiB      16 KiB      16 KiB      30 KiB      30 KiB      30 KiB
+FillBoundary_finish()                      32016      10 KiB      10 KiB      10 KiB      21 KiB      21 KiB      21 KiB
+VisMF::Write(FabArray)                    167608       2   B       2   B       2   B    4096   B    4096   B    4096   B
+ParticleContainer::Redistribute_impl()      8048     482   B     482   B     482   B    1024   B    1024   B    1024   B
+DataReducer::WriteReducedData0D()          16008     241   B     241   B     241   B     768   B     768   B     768   B
+Emu::post_timestep()                        8000       0   B       0   B       0   B     256   B     256   B     256   B
+FlavoredNeutrinoContainer::InitParticles       8       0   B       0   B       0   B     256   B     256   B     256   B
+ParticleContainer::WriteParticles()          328       0   B       0   B       0   B     256   B     256   B     256   B
+ParticleCopyPlan::build                     8000       7   B       7   B       8   B     256   B     256   B     256   B
+ParticleCopyPlan::buildMPIStart             3208       3   B       3   B       3   B     256   B     256   B     256   B
+Redistribute_partition                      8000       0   B       0   B       0   B     256   B     256   B     256   B
+WriteBinaryParticleData()                    656       0   B       0   B       0   B     256   B     256   B     256   B
+------------------------------------------------------------------------------------------------------------------------
+
+Comms Memory Usage:
+-------------------------------------------------------------------------------------------------------------
+Name                           Nalloc  AvgMem min  AvgMem avg  AvgMem max  MaxMem min  MaxMem avg  MaxMem max
+-------------------------------------------------------------------------------------------------------------
+The_Comms_Arena::Initialize()       8       0   B       0   B       0   B    8192 KiB    8192 KiB    8192 KiB
+FillBoundary_nowait()          128032     230 KiB     234 KiB     235 KiB     781 KiB     781 KiB     781 KiB
+-------------------------------------------------------------------------------------------------------------
+
+Total GPU global memory (MB) spread across MPI: [81151 ... 81151]
+Free  GPU global memory (MB) spread across MPI: [19419 ... 19419]
+[The         Arena] max space (MB) allocated spread across MPI: [60863 ... 60863]
+[The         Arena] max space (MB) used      spread across MPI: [56 ... 56]
+[The Managed Arena] max space (MB) allocated spread across MPI: [917 ... 917]
+[The Managed Arena] max space (MB) used      spread across MPI: [690 ... 690]
+[The  Pinned Arena] max space (MB) allocated spread across MPI: [8 ... 8]
+[The  Pinned Arena] max space (MB) used      spread across MPI: [0 ... 0]
+[The   Comms Arena] max space (MB) allocated spread across MPI: [8 ... 8]
+[The   Comms Arena] max space (MB) used      spread across MPI: [0 ... 0]
+AMReX (20.06-3410-gc4a2ddb18bd7) finalized
+(ReadEosTable.cpp) nrho = 234, ntemp = 136, nye = 50
+(ReadEosTable.cpp) EOS:rhomin  = 1.00000e+03 g/cm^3
+(ReadEosTable.cpp) EOS:rhomax  = 1.00000e+16 g/cm^3
+(ReadEosTable.cpp) EOS:tempmin  = 0.0100 MeV
+(ReadEosTable.cpp) EOS:tempmax  = 251.1886 MeV
+(ReadEosTable.cpp) EOS:yemin  = 0.0350
+(ReadEosTable.cpp) EOS:yemax  = 0.5500
+(ReadEosTable.cpp) Finished reading EoS table!
+(ReadNuLibTable.cpp) nrho = 82, ntemp = 65, nye = 51, nspecies=3, ngroup=18
+(ReadNuLibTable.cpp) NuLib:rhomin  = 1.00000e+06 g/cm^3
+(ReadNuLibTable.cpp) NuLib:rhomax  = 3.16228e+15 g/cm^3
+(ReadNuLibTable.cpp) NuLib:tempmin  = 0.0500 MeV
+(ReadNuLibTable.cpp) NuLib:tempmax  = 150.0000 MeV
+(ReadNuLibTable.cpp) NuLib:yemin  = 0.0350
+(ReadNuLibTable.cpp) NuLib:yemax  = 0.5500
+(ReadNuLibTable.cpp) Finished reading NuLib table!
+(ReadHDF5RhoYeT.cpp) ncellx_ = 2, ncelly_ = 2, ncellz_ = 2
+(ReadHDF5RhoYeT.cpp) xmin_ = 0.000000, ymin_ = 0.000000, zmin_ = 0.000000
+(ReadEosTable.cpp) nrho = 234, ntemp = 136, nye = 50
+(ReadEosTable.cpp) EOS:rhomin  = 1.00000e+03 g/cm^3
+(ReadEosTable.cpp) EOS:rhomax  = 1.00000e+16 g/cm^3
+(ReadEosTable.cpp) EOS:tempmin  = 0.0100 MeV
+(ReadEosTable.cpp) EOS:tempmax  = 251.1886 MeV
+(ReadEosTable.cpp) EOS:yemin  = 0.0350
+(ReadEosTable.cpp) EOS:yemax  = 0.5500
+(ReadEosTable.cpp) Finished reading EoS table!
+(ReadNuLibTable.cpp) nrho = 82, ntemp = 65, nye = 51, nspecies=3, ngroup=18
+(ReadNuLibTable.cpp) NuLib:rhomin  = 1.00000e+06 g/cm^3
+(ReadNuLibTable.cpp) NuLib:rhomax  = 3.16228e+15 g/cm^3
+(ReadNuLibTable.cpp) NuLib:tempmin  = 0.0500 MeV
+(ReadNuLibTable.cpp) NuLib:tempmax  = 150.0000 MeV
+(ReadNuLibTable.cpp) NuLib:yemin  = 0.0350
+(ReadNuLibTable.cpp) NuLib:yemax  = 0.5500
+(ReadNuLibTable.cpp) Finished reading NuLib table!
+(ReadHDF5RhoYeT.cpp) ncellx_ = 2, ncelly_ = 2, ncellz_ = 2
+(ReadHDF5RhoYeT.cpp) xmin_ = 0.000000, ymin_ = 0.000000, zmin_ = 0.000000
+(ReadHDF5RhoYeT.cpp) xmax_ = 2200000.000000, ymax_ = 2200000.000000, zmax_ = 2200000.000000
+AFTER ALLOC: vupz_array_input = 0x7f332e000900
+N = 8
+vupz[0] AFTER ALLOC = 1.000000e-30
+BEFORE CLOSE: vupz[0] = 1.000000e-30
+(ReadHDF5RhoYeT.cpp) xmax_ = 2200000.000000, ymax_ = 2200000.000000, zmax_ = 2200000.000000
+AFTER ALLOC: vupz_array_input = 0x7f11e0000900
+N = 8
+vupz[0] AFTER ALLOC = 1.000000e-30
+BEFORE CLOSE: vupz[0] = 1.000000e-30
+(ReadEosTable.cpp) nrho = 234, ntemp = 136, nye = 50
+(ReadEosTable.cpp) EOS:rhomin  = 1.00000e+03 g/cm^3
+(ReadEosTable.cpp) EOS:rhomax  = 1.00000e+16 g/cm^3
+(ReadEosTable.cpp) EOS:tempmin  = 0.0100 MeV
+(ReadEosTable.cpp) EOS:tempmax  = 251.1886 MeV
+(ReadEosTable.cpp) EOS:yemin  = 0.0350
+(ReadEosTable.cpp) EOS:yemax  = 0.5500
+(ReadEosTable.cpp) Finished reading EoS table!
+(ReadNuLibTable.cpp) nrho = 82, ntemp = 65, nye = 51, nspecies=3, ngroup=18
+(ReadNuLibTable.cpp) NuLib:rhomin  = 1.00000e+06 g/cm^3
+(ReadNuLibTable.cpp) NuLib:rhomax  = 3.16228e+15 g/cm^3
+(ReadNuLibTable.cpp) NuLib:tempmin  = 0.0500 MeV
+(ReadNuLibTable.cpp) NuLib:tempmax  = 150.0000 MeV
+(ReadNuLibTable.cpp) NuLib:yemin  = 0.0350
+(ReadNuLibTable.cpp) NuLib:yemax  = 0.5500
+(ReadNuLibTable.cpp) Finished reading NuLib table!
+(ReadHDF5RhoYeT.cpp) ncellx_ = 2, ncelly_ = 2, ncellz_ = 2
+(ReadHDF5RhoYeT.cpp) xmin_ = 0.000000, ymin_ = 0.000000, zmin_ = 0.000000
+(ReadEosTable.cpp) nrho = 234, ntemp = 136, nye = 50
+(ReadEosTable.cpp) EOS:rhomin  = 1.00000e+03 g/cm^3
+(ReadEosTable.cpp) EOS:rhomax  = 1.00000e+16 g/cm^3
+(ReadEosTable.cpp) EOS:tempmin  = 0.0100 MeV
+(ReadEosTable.cpp) EOS:tempmax  = 251.1886 MeV
+(ReadEosTable.cpp) EOS:yemin  = 0.0350
+(ReadEosTable.cpp) EOS:yemax  = 0.5500
+(ReadEosTable.cpp) Finished reading EoS table!
+(ReadNuLibTable.cpp) nrho = 82, ntemp = 65, nye = 51, nspecies=3, ngroup=18
+(ReadNuLibTable.cpp) NuLib:rhomin  = 1.00000e+06 g/cm^3
+(ReadNuLibTable.cpp) NuLib:rhomax  = 3.16228e+15 g/cm^3
+(ReadNuLibTable.cpp) NuLib:tempmin  = 0.0500 MeV
+(ReadNuLibTable.cpp) NuLib:tempmax  = 150.0000 MeV
+(ReadNuLibTable.cpp) NuLib:yemin  = 0.0350
+(ReadNuLibTable.cpp) NuLib:yemax  = 0.5500
+(ReadNuLibTable.cpp) Finished reading NuLib table!
+(ReadHDF5RhoYeT.cpp) ncellx_ = 2, ncelly_ = 2, ncellz_ = 2
+(ReadHDF5RhoYeT.cpp) xmin_ = 0.000000, ymin_ = 0.000000, zmin_ = 0.000000
+(ReadHDF5RhoYeT.cpp) xmax_ = 2200000.000000, ymax_ = 2200000.000000, zmax_ = 2200000.000000
+AFTER ALLOC: vupz_array_input = 0x7fba50000900
+N = 8
+vupz[0] AFTER ALLOC = 1.000000e-30
+BEFORE CLOSE: vupz[0] = 1.000000e-30
+(ReadHDF5RhoYeT.cpp) xmax_ = 2200000.000000, ymax_ = 2200000.000000, zmax_ = 2200000.000000
+AFTER ALLOC: vupz_array_input = 0x7f4b00000900
+N = 8
+vupz[0] AFTER ALLOC = 1.000000e-30
+BEFORE CLOSE: vupz[0] = 1.000000e-30
+(ReadEosTable.cpp) nrho = 234, ntemp = 136, nye = 50
+(ReadEosTable.cpp) EOS:rhomin  = 1.00000e+03 g/cm^3
+(ReadEosTable.cpp) EOS:rhomax  = 1.00000e+16 g/cm^3
+(ReadEosTable.cpp) EOS:tempmin  = 0.0100 MeV
+(ReadEosTable.cpp) EOS:tempmax  = 251.1886 MeV
+(ReadEosTable.cpp) EOS:yemin  = 0.0350
+(ReadEosTable.cpp) EOS:yemax  = 0.5500
+(ReadEosTable.cpp) Finished reading EoS table!
+(ReadNuLibTable.cpp) nrho = 82, ntemp = 65, nye = 51, nspecies=3, ngroup=18
+(ReadNuLibTable.cpp) NuLib:rhomin  = 1.00000e+06 g/cm^3
+(ReadNuLibTable.cpp) NuLib:rhomax  = 3.16228e+15 g/cm^3
+(ReadNuLibTable.cpp) NuLib:tempmin  = 0.0500 MeV
+(ReadNuLibTable.cpp) NuLib:tempmax  = 150.0000 MeV
+(ReadNuLibTable.cpp) NuLib:yemin  = 0.0350
+(ReadNuLibTable.cpp) NuLib:yemax  = 0.5500
+(ReadNuLibTable.cpp) Finished reading NuLib table!
+(ReadHDF5RhoYeT.cpp) ncellx_ = 2, ncelly_ = 2, ncellz_ = 2
+(ReadHDF5RhoYeT.cpp) xmin_ = 0.000000, ymin_ = 0.000000, zmin_ = 0.000000
+(ReadEosTable.cpp) nrho = 234, ntemp = 136, nye = 50
+(ReadEosTable.cpp) EOS:rhomin  = 1.00000e+03 g/cm^3
+(ReadEosTable.cpp) EOS:rhomax  = 1.00000e+16 g/cm^3
+(ReadEosTable.cpp) EOS:tempmin  = 0.0100 MeV
+(ReadEosTable.cpp) EOS:tempmax  = 251.1886 MeV
+(ReadEosTable.cpp) EOS:yemin  = 0.0350
+(ReadEosTable.cpp) EOS:yemax  = 0.5500
+(ReadEosTable.cpp) Finished reading EoS table!
+(ReadNuLibTable.cpp) nrho = 82, ntemp = 65, nye = 51, nspecies=3, ngroup=18
+(ReadNuLibTable.cpp) NuLib:rhomin  = 1.00000e+06 g/cm^3
+(ReadNuLibTable.cpp) NuLib:rhomax  = 3.16228e+15 g/cm^3
+(ReadNuLibTable.cpp) NuLib:tempmin  = 0.0500 MeV
+(ReadNuLibTable.cpp) NuLib:tempmax  = 150.0000 MeV
+(ReadNuLibTable.cpp) NuLib:yemin  = 0.0350
+(ReadNuLibTable.cpp) NuLib:yemax  = 0.5500
+(ReadNuLibTable.cpp) Finished reading NuLib table!
+(ReadHDF5RhoYeT.cpp) ncellx_ = 2, ncelly_ = 2, ncellz_ = 2
+(ReadHDF5RhoYeT.cpp) xmin_ = 0.000000, ymin_ = 0.000000, zmin_ = 0.000000
+(ReadHDF5RhoYeT.cpp) xmax_ = 2200000.000000, ymax_ = 2200000.000000, zmax_ = 2200000.000000
+AFTER ALLOC: vupz_array_input = 0x7fa794000900
+N = 8
+vupz[0] AFTER ALLOC = 1.000000e-30
+BEFORE CLOSE: vupz[0] = 1.000000e-30
+(ReadHDF5RhoYeT.cpp) xmax_ = 2200000.000000, ymax_ = 2200000.000000, zmax_ = 2200000.000000
+AFTER ALLOC: vupz_array_input = 0x7f4724000900
+N = 8
+vupz[0] AFTER ALLOC = 1.000000e-30
+BEFORE CLOSE: vupz[0] = 1.000000e-30
+(ReadEosTable.cpp) nrho = 234, ntemp = 136, nye = 50
+(ReadEosTable.cpp) EOS:rhomin  = 1.00000e+03 g/cm^3
+(ReadEosTable.cpp) EOS:rhomax  = 1.00000e+16 g/cm^3
+(ReadEosTable.cpp) EOS:tempmin  = 0.0100 MeV
+(ReadEosTable.cpp) EOS:tempmax  = 251.1886 MeV
+(ReadEosTable.cpp) EOS:yemin  = 0.0350
+(ReadEosTable.cpp) EOS:yemax  = 0.5500
+(ReadEosTable.cpp) Finished reading EoS table!
+(ReadNuLibTable.cpp) nrho = 82, ntemp = 65, nye = 51, nspecies=3, ngroup=18
+(ReadNuLibTable.cpp) NuLib:rhomin  = 1.00000e+06 g/cm^3
+(ReadNuLibTable.cpp) NuLib:rhomax  = 3.16228e+15 g/cm^3
+(ReadNuLibTable.cpp) NuLib:tempmin  = 0.0500 MeV
+(ReadNuLibTable.cpp) NuLib:tempmax  = 150.0000 MeV
+(ReadNuLibTable.cpp) NuLib:yemin  = 0.0350
+(ReadNuLibTable.cpp) NuLib:yemax  = 0.5500
+(ReadNuLibTable.cpp) Finished reading NuLib table!
+(ReadHDF5RhoYeT.cpp) ncellx_ = 2, ncelly_ = 2, ncellz_ = 2
+(ReadHDF5RhoYeT.cpp) xmin_ = 0.000000, ymin_ = 0.000000, zmin_ = 0.000000
+(ReadHDF5RhoYeT.cpp) xmax_ = 2200000.000000, ymax_ = 2200000.000000, zmax_ = 2200000.000000
+AFTER ALLOC: vupz_array_input = 0x7faa70000900
+N = 8
+vupz[0] AFTER ALLOC = 1.000000e-30
+BEFORE CLOSE: vupz[0] = 1.000000e-30

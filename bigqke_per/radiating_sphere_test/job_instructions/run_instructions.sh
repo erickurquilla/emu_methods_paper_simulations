@@ -14,10 +14,12 @@ module load cudatoolkit/13.2
 module load gcc-native/14
 module list
 
-export MPICH_GPU_SUPPORT_ENABLED=1
-export MPICH_GPU_IPC_ENABLED=0
+echo "shell: SUPPORT=$MPICH_GPU_SUPPORT_ENABLED IPC=$MPICH_GPU_IPC_ENABLED"
+export MPICH_GPU_SUPPORT_ENABLED=0
+unset MPICH_GPU_IPC_ENABLED
+export MPICH_ENV_DISPLAY=1
 
 cd /pscratch/sd/b/bigqke/bigqke_scratch/emu_methods_paper_simulations/bigqke_per/radiating_sphere_test
 srun -n 240 -G 240 --gpus-per-task=1 ./main3d.gnu.TPROF.MPI.CUDA.ex job_instructions/inputs
 
-# Submitted batch job 60318576
+# Submitted batch job 60400971

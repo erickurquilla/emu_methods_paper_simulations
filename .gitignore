@@ -6,3 +6,4 @@
 *.fatbin
 plt*
 allData.h5
+Backtrace.*

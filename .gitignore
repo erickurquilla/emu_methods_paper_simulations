@@ -8,3 +8,5 @@ plt*
 allData.h5
 Backtrace.*
 mesh_plt*
+__pycache__
+stored*

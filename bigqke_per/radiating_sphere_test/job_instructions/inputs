@@ -16,7 +16,7 @@ integration.rk.type = 4          # DormandPrince (0=User, 1=ForwardEuler, 2=Trap
 integration.use_adaptive_time_step = 0
 
 # Domain size in 3D index space
-ncell = (127,127,127)
+ncell = (96,96,64)
 Lx = 4.4e6 # cm
 Ly = 4.4e6 # cm
 Lz = 4.4e6 # cm
@@ -26,13 +26,11 @@ nppc  = (1, 1, 1)
 particle_data_filename = "particle_input.dat"
 
 # Maximum size of each grid in the domain
-# 60 Nodes
-# 240 GPUs
-# For (127,127,127) domain, optimum grid size is 16 x 16 x 16 (512 boxes per dim, 512*3=1536 boxes)
-# This will divide the full domain into 8 x 8 x 8 = 512 boxes, which is divisible by 240 GPUs and 60 nodes
-max_grid_size_x = 22
+# 18 Nodes
+# 72 GPUs
+max_grid_size_x = 16
 max_grid_size_y = 16
-max_grid_size_z = 13
+max_grid_size_z = 32
 
 # Number of steps to run
 nsteps = 508

@@ -1,3 +1,5 @@
+import shutil
+
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
@@ -7,10 +9,12 @@ from matplotlib.ticker import AutoLocator, AutoMinorLocator, LogLocator
 # Font settings
 mpl.rcParams['font.size'] = 22
 mpl.rcParams['font.family'] = 'serif'
-try:
-    mpl.rc('text', usetex=True)
-except Exception as e:
-    mpl.rc('text', usetex=False)
+# usetex=True only sets a flag; LaTeX is invoked later at draw/save time.
+# Enable it only when the required TeX tools are actually on PATH.
+_tex_available = (
+    shutil.which('latex') is not None and shutil.which('dvipng') is not None
+)
+mpl.rc('text', usetex=_tex_available)
 
 # Tick settings
 mpl.rcParams['xtick.major.width'] = 2

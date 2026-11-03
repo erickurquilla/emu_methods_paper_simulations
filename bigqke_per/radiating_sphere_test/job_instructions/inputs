@@ -65,7 +65,7 @@ restart_dir = ""
 
 # deposition method --> 0: old slow method, 1: new fast method
 # scattering works only with method zero (for now)
-deposit_method = 0
+deposit_method = 1
 
 ###############################
 # NEUTRINO PHYSICS PARAMETERS #
@@ -122,12 +122,12 @@ do_blackhole = 0
 #################
 # Boundary conditions
 #################
-bc_xlo = outflow
-bc_xhi = outflow
-bc_ylo = outflow
-bc_yhi = outflow
-bc_zlo = outflow
-bc_zhi = outflow
+bc_xlo = periodic_empty
+bc_xhi = periodic_empty
+bc_ylo = periodic_empty
+bc_yhi = periodic_empty
+bc_zlo = periodic_empty
+bc_zhi = periodic_empty
 
 #################
 # Tables

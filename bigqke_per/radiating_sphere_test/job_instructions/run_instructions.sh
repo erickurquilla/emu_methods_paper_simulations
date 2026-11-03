@@ -22,4 +22,4 @@ export MPICH_ENV_DISPLAY=1
 cd /pscratch/sd/b/bigqke/bigqke_scratch/emu_methods_paper_simulations/bigqke_per/radiating_sphere_test
 srun -n 32 -G 32 --gpus-per-task=1 ./main3d.gnu.TPROF.MPI.CUDA.ex job_instructions/inputs
 
-# Submitted batch job 60697908
+# Submitted batch job 60761359

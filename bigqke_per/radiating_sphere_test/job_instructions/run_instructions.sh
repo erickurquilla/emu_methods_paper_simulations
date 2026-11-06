@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH -N 8
+#SBATCH -N 32
 #SBATCH -C gpu
-#SBATCH -G 32
+#SBATCH -G 128
 #SBATCH -q regular
 #SBATCH -J radiating_sphere_test
 #SBATCH --mail-user=eurquill@vols.utk.edu
 #SBATCH --mail-type=ALL
-#SBATCH -t 01:00:00
+#SBATCH -t 00:15:00
 #SBATCH -A m3761_g
 
 module load cray-hdf5-parallel/1.14.3.9
@@ -20,6 +20,6 @@ unset MPICH_GPU_IPC_ENABLED
 export MPICH_ENV_DISPLAY=1
 
 cd /pscratch/sd/b/bigqke/bigqke_scratch/emu_methods_paper_simulations/bigqke_per/radiating_sphere_test
-srun -n 32 -G 32 --gpus-per-task=1 ./main3d.gnu.TPROF.MPI.CUDA.ex job_instructions/inputs
+srun -n 128 -G 128 --gpus-per-task=1 ./main3d.gnu.TPROF.MPI.CUDA.ex job_instructions/inputs
 
-# Submitted batch job 60761359
+# Submitted batch job 60877140

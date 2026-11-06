@@ -32,7 +32,7 @@ particle_data_filename = "particle_input.dat"
 # 32 * 32 * 64 = 65536 cells per GPU
 max_grid_size_x = 32
 max_grid_size_y = 32
-max_grid_size_z = 64
+max_grid_size_z = 16
 
 # Number of steps to run
 nsteps = 757

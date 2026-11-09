@@ -16,48 +16,48 @@ integration.rk.type = 4          # DormandPrince (0=User, 1=ForwardEuler, 2=Trap
 integration.use_adaptive_time_step = 0
 
 # Domain size in 3D index space
-ncell = (128,128,128)
-Lx = 3.627e6 # R*3.1 , R=1.17e6 cm
-Ly = 2.457e6 # R*2.1 , R=1.17e6 cm
-Lz = 2.457e6 # R*2.1 , R=1.17e6 cm
+ncell = (192,128,128)
+Lx = 4212000.0 # (R+0.2*R)*3 , R=1.17e6 cm
+Ly = 2808000.0 # (R+0.2*R)*2 , R=1.17e6 cm
+Lz = 2808000.0 # (R+0.2*R)*2 , R=1.17e6 cm
 
 # Number of particles per cell
 nppc  = (1, 1, 1)
 particle_data_filename = "particle_input.dat"
 
 # Maximum size of each grid in the domain
-# 8 Nodes
-# 32 GPUs
-# (128/32) * (128/32) * (64/32) = 32 boxes to be split into 32 GPUs
-# 32 * 32 * 64 = 65536 cells per GPU
+# 48 Nodes
+# 192 GPUs
+# (192/32) * (128/32) * (128/16) = 192 boxes to be split into 192 GPUs
+# 32 * 32 * 16 = 16384 cells per GPU
 max_grid_size_x = 32
 max_grid_size_y = 32
 max_grid_size_z = 16
 
 # Number of steps to run
-nsteps = 757
+nsteps = 768
 
 # Minimum timestep (s)
 # lightspeed = 29979245800 cm/s
-# dxcell_cm = 2.834e4 cm
-# dycell_cm = 1.920e4 cm
-# dzcell_cm = 1.920e4 cm
-minimum_time_step = 1.6011076569511297e-07 # dycell_cm / 4*lightspeed
+# dxcell_cm = 21937.5 cm
+# dycell_cm = 21937.5 cm
+# dzcell_cm = 21937.5 cm
+minimum_time_step = 1.829390584602365e-07 # dycell_cm / 4*lightspeed
 
 # Time step method
 time_step_method = 1 # 0 for adaptive time step, 1 for fixed time step with value minimum_time_step but RK4 has to be used.
 
 # Simulation end time
-end_time = 1.27e-4
+end_time = 0.00014049719689746164
 
 # Make FPE signal errors so we get a Backtrace
 amrex.fpe_trap_invalid=0
 
 # Write plotfiles
-write_plot_every = 757
+write_plot_every = 768
 
 # Write particle data in plotfiles
-write_plot_particles_every = 757
+write_plot_particles_every = 768
 
 # checkpointing
 do_restart = 0

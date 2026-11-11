@@ -11,3 +11,5 @@ mesh_plt*
 __pycache__
 *stored*
 cassowary/fermi-dirac/weak_quantities/
+__pycache__/
+*.py[cod]

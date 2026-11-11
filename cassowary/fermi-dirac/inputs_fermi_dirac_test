@@ -7,7 +7,7 @@ attenuation_vacuum = 1.0
 attenuation_matter = 1.0
 attenuation_self_interaction = 1.0
 
-cfl_factor = 0.5
+cfl_factor = 1e-30
 
 integration.type = 1
 integration.rk.type = 4          # DormandPrince (0=User, 1=ForwardEuler, 2=Trapezoid, 3=SSPRK3, 4=RK4, 5=DormandPrince)
@@ -32,19 +32,19 @@ max_grid_size_z = 2
 nsteps = 6000
 
 # Minimum timestep (s)
-minimum_time_step = 1e-15
+minimum_time_step = 2.804846440387358e-06
 
 # Simulation end time
-end_time = 5.0e9
+end_time = 0.01682907864232415
 
 # Make FPE signal errors so we get a Backtrace
 amrex.fpe_trap_invalid=1
 
 # Write plotfiles
-write_plot_every = 6000
+write_plot_every = 1
 
 # Write particle data in plotfiles
-write_plot_particles_every = 6000
+write_plot_particles_every = 1
 
 # checkpointing
 do_restart = 0

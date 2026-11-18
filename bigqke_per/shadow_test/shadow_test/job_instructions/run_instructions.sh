@@ -22,4 +22,4 @@ export MPICH_ENV_DISPLAY=1
 cd /pscratch/sd/b/bigqke/bigqke_scratch/emu_methods_paper_simulations/bigqke_per/shadow_test/shadow_test
 srun -n 48 -G 48 --gpus-per-task=1 ./main3d.gnu.TPROF.MPI.CUDA.ex job_instructions/inputs
 
-# Submitted batch job 61471403
+# Submitted batch job 61496888

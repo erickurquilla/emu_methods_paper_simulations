@@ -12,4 +12,4 @@ cd /pscratch/sd/b/bigqke/bigqke_scratch/emu_methods_paper_simulations/bigqke_per
 source /global/common/software/m3761/bigqke_software/python_virtual_enviroments/venv_bigqke_1/bin/activate
 python /global/common/software/m3761/bigqke_software/Emu/Scripts/data_reduction/convertToHDF5_split.py
 
-# Submitted batch job 61471411
+# Submitted batch job 61496899

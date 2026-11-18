@@ -78,7 +78,7 @@ print(f"r_sphere_center_cm = ( {cx}, {cy}, {cz} )")
 print(f"r_sphere_radius_index = ( {np.floor(cx/dxcell)}, {np.floor(cy/dycell)}, {np.floor(cz/dzcell)} )")
 
 # Shadowing sphere center. Distance from the center to a cube face is 2.2e6 cm.
-cx_abs = np.ceil((5.0*R+0.2*R)/dxcell)*dxcell + 0.5 * dxcell
+cx_abs = np.ceil((4.0*R+0.2*R)/dxcell)*dxcell + 0.5 * dxcell
 cy_abs = 0.5 * (ymin + ymax)              + 0.5 * dycell
 cz_abs = 0.5 * (zmin + zmax)              + 0.5 * dzcell
 print(f"r_shadowing_sphere_center_cm = ( {cx_abs}, {cy_abs}, {cz_abs} )")

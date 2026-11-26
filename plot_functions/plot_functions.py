@@ -119,18 +119,43 @@ def plot_color_map_with_scattered_points(x, y, z, bh_r, bh_x, bh_y, min_cb, max_
     # Close figure
     plt.close(fig)
 
-def plot_color_map(x, y, z, min_cb, max_cb, x_label, y_label, title, cbar_label, colormap, filename, doshow=True, dosave=True):
+def plot_color_map(
+    x,
+    y,
+    z,
+    bh_r,
+    bh_x,
+    bh_y,
+    min_cb,
+    max_cb,
+    x_label,
+    y_label,
+    title,
+    cbar_label,
+    colormap,
+    filename,
+    r_sphere_center_cm,
+    r_sphere_radius,
+    r_shadowing_sphere_center_cm,
+    r_shadowing_sphere_radius,
+    doshow=True,
+    dosave=True,
+):
 
     fig, ax = plt.subplots(figsize=(12, 8))
 
     # Plot pcolormesh
-    c = ax.pcolormesh(x, y, z, shading='auto', cmap=colormap, vmin=min_cb, vmax=max_cb)
+    # Set non-data points (NaN) to black in the colormap
+    cmap = plt.get_cmap(colormap).copy()
+    cmap.set_bad(color='black')
 
+    # Plot pcolormesh with masked array to handle NaNs
+    c = ax.pcolormesh(x, y, z, shading='auto', cmap=cmap, vmin=min_cb, vmax=max_cb)
+    
     # Add contour lines
     # contour = ax.contour(x, y, z, colors='black', linewidths=1.5, levels=3)
-    # contour = ax.contour(x, y, z, colors='black', linewidths=1.5, levels=[0.5,2.0,3.5])
+    # contour = ax.contour(x, y, z, colors='black', linewidths=1.5, levels=[32.0, 32.2, 32.4])
     # ax.clabel(contour, inline=True, fontsize=15, fmt='%1.1f')
-    # ax.clabel(contour, inline=True, fontsize=15, fmt='%1.1e')
 
     # Plot settings
     ax.set_xlabel(x_label)
@@ -138,14 +163,100 @@ def plot_color_map(x, y, z, min_cb, max_cb, x_label, y_label, title, cbar_label,
     # ax.set_title(title+'\nmin: {:.2e}\nmax: {:.2e}'.format(np.nanmin(z), np.nanmax(z)))
     ax.set_title(title)
 
+    linescolors = 'black'
+    linesalpha = 0.5
+
+    # Emitter and absorber spheres. Centers and radii are stored in cm;
+    # the plot axes are in km. Both spheres have y = z, so (x, y) is also
+    # the correct (x, z) center on the xz slices.
+    emitter_circle = plt.Circle(
+        (r_sphere_center_cm[0] / 1e5, r_sphere_center_cm[1] / 1e5),
+        radius=r_sphere_radius / 1e5,
+        edgecolor=linescolors,
+        facecolor='none',
+        linewidth=2,
+        label='emitter',
+        zorder=5,
+        alpha=linesalpha,
+    )
+    absorber_circle = plt.Circle(
+        (r_shadowing_sphere_center_cm[0] / 1e5, r_shadowing_sphere_center_cm[1] / 1e5),
+        radius=r_shadowing_sphere_radius / 1e5,
+        edgecolor=linescolors,
+        facecolor='none',
+        linewidth=2,
+        label='absorber',
+        zorder=5,
+        alpha=linesalpha,
+    )
+    ax.add_patch(emitter_circle)
+    ax.add_patch(absorber_circle)
+    # ax.legend(loc='upper right')
+
+    # External tangents: one contact point on each sphere, extended to +x.
+    emitter_center_km = np.array([
+        r_sphere_center_cm[0] / 1e5,
+        r_sphere_center_cm[1] / 1e5,
+    ])
+    absorber_center_km = np.array([
+        r_shadowing_sphere_center_cm[0] / 1e5,
+        r_shadowing_sphere_center_cm[1] / 1e5,
+    ])
+    emitter_radius_km = r_sphere_radius / 1e5
+    absorber_radius_km = r_shadowing_sphere_radius / 1e5
+    center_separation = absorber_center_km - emitter_center_km
+    separation = np.linalg.norm(center_separation)
+    line_angle = np.arctan2(center_separation[1], center_separation[0])
+    tangent_tilt = np.arcsin((emitter_radius_km - absorber_radius_km) / separation)
+    x_domain_max = np.nanmax(x)
+    for side in (+1, -1):  # upper, then lower
+        radius_angle = line_angle + side * (np.pi / 2 - tangent_tilt)
+        radius_direction = np.array([np.cos(radius_angle), np.sin(radius_angle)])
+        emitter_touch = emitter_center_km + emitter_radius_km * radius_direction
+        absorber_touch = absorber_center_km + absorber_radius_km * radius_direction
+        tangent_direction = absorber_touch - emitter_touch
+        extension = (x_domain_max - emitter_touch[0]) / tangent_direction[0]
+        tangent_end = emitter_touch + extension * tangent_direction
+        ax.plot(
+            [emitter_touch[0], tangent_end[0]],
+            [emitter_touch[1], tangent_end[1]],
+            color=linescolors,
+            linewidth=2,
+            zorder=6,
+            alpha=linesalpha,
+        )
+
+    # Internal tangents: opposite contact sides, extended to +x.
+    internal_tilt = np.arcsin((emitter_radius_km + absorber_radius_km) / separation)
+    for side in (+1, -1):
+        radius_angle = line_angle + side * (np.pi / 2 - internal_tilt)
+        radius_direction = np.array([np.cos(radius_angle), np.sin(radius_angle)])
+        emitter_touch = emitter_center_km + emitter_radius_km * radius_direction
+        absorber_touch = absorber_center_km - absorber_radius_km * radius_direction
+        tangent_direction = absorber_touch - emitter_touch
+        extension = (x_domain_max - emitter_touch[0]) / tangent_direction[0]
+        tangent_end = emitter_touch + extension * tangent_direction
+        ax.plot(
+            [emitter_touch[0], tangent_end[0]],
+            [emitter_touch[1], tangent_end[1]],
+            color=linescolors,
+            linewidth=2,
+            zorder=6,
+            alpha=linesalpha,
+        )
+
     # Add color bar
     cbar = fig.colorbar(c, ax=ax, label=cbar_label)
     cbar.ax.yaxis.set_minor_locator(AutoMinorLocator())
 
-    apply_custom_settings(ax, None, False)
+    apply_custom_settings(ax, log_scale_y=False)
 
-    # Ensure equal aspect ratio
-    ax.set_aspect('equal', 'box')
+    # Lock the view to the mesh extent. x and y are 2D, so the limits have
+    # to be scalars. Set them after the circles, tangents, and equal aspect,
+    # and turn autoscaling off so those artists cannot expand the frame.
+    ax.set_aspect('equal', adjustable='box')
+    ax.set_xlim(float(np.nanmin(x)), float(np.nanmax(x)), auto=False)
+    ax.set_ylim(float(np.nanmin(y)), float(np.nanmax(y)), auto=False)
 
     # Save figure
     if dosave:
@@ -158,6 +269,7 @@ def plot_color_map(x, y, z, min_cb, max_cb, x_label, y_label, title, cbar_label,
     
     # Close figure
     plt.close(fig)
+
 
 def plot_pcolormesh_with_contour_and_scatter(
     x1, y1, z1, min_cb1, max_cb1, cbar_label1, colormap1,

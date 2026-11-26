@@ -2,10 +2,19 @@
 
 The functions use the geometry, opacities, and angular mesh of the caller.
 Call configure(namespace) with the notebook globals before evaluating them.
+Physical constants come from phys_const.
 """
+import sys
+from pathlib import Path
+
 import numpy as np
 
-_REQUIRED = ['kappa_a', 'kappa_e', 'S_e', 'center_e', 'center_a', 'R_e', 'R_a', 'e_sep', 'x_external', 'x_internal', 'beta_u', 'beta_p', 'd', 'dx', 'dy', 'dz', 'ncell', 'phat', 'vphase_a', 'n_directions', 'full_f_bytes', 'hbar', 'c']
+_phys_const_dir = Path(__file__).resolve().parents[2] / "phys_const"
+if str(_phys_const_dir) not in sys.path:
+    sys.path.insert(0, str(_phys_const_dir))
+from phys_const import PhysConst
+
+_REQUIRED = ['kappa_a', 'kappa_e', 'S_e', 'center_e', 'center_a', 'R_e', 'R_a', 'e_sep', 'x_external', 'x_internal', 'beta_u', 'beta_p', 'd', 'dx', 'dy', 'dz', 'ncell', 'phat', 'vphase_a', 'n_directions', 'full_f_bytes']
 
 
 def configure(namespace):
@@ -195,7 +204,7 @@ def moments_from_f(distribution, directions=None, phase_volume=None):
     distribution = np.asarray(distribution, dtype=np.float64)
     directions = np.asarray(directions, dtype=np.float64)
     phase_volume = np.asarray(phase_volume, dtype=np.float64)
-    prefactor = phase_volume / (2.0 * np.pi * hbar * c) ** 3
+    prefactor = phase_volume / (2.0 * np.pi * PhysConst.hbar * PhysConst.c) ** 3
     number_density = np.sum(distribution * prefactor, axis=-1)
     number_flux = np.einsum(
         "...a,aj,a->...j",

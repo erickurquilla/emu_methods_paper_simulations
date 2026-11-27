@@ -15,6 +15,9 @@ from .analytic import (
     occupation_number,
     number_density_and_flux,
     evaluate_chunk,
+    reference_moments_on_points,
+    reference_moments_x_slab,
+    reference_moments_x_slab_task,
 )
 
 __all__ = [
@@ -33,4 +36,7 @@ __all__ = [
     "occupation_number",
     "number_density_and_flux",
     "evaluate_chunk",
+    "reference_moments_on_points",
+    "reference_moments_x_slab",
+    "reference_moments_x_slab_task",
 ]

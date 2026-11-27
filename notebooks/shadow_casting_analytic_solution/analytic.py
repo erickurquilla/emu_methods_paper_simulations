@@ -216,6 +216,39 @@ def moments_from_f(distribution, directions=None, phase_volume=None):
     return number_density, number_flux
 
 
+def reference_moments_on_points(points, max_bytes=128 * 1024**2):
+    """n, F, and isolated-emitter n_0 at points of shape (N, 3).
+
+    Both densities share one pair of chord lengths. n_0 drops the absorber.
+    Units are cm^-3. F is the number flux divided by c.
+    """
+    points = np.asarray(points, dtype=np.float64)
+    if points.ndim == 1:
+        points = points.reshape(1, 3)
+    n_dir = phat.shape[0]
+    batch = max(1, int(max_bytes // (n_dir * 8)))
+    foreground = (phat @ e_sep) > 0.0
+    number = np.empty(points.shape[0], dtype=np.float64)
+    isolated = np.empty(points.shape[0], dtype=np.float64)
+    flux = np.empty((points.shape[0], 3), dtype=np.float64)
+    for start in range(0, points.shape[0], batch):
+        stop = min(start + batch, points.shape[0])
+        chunk = points[start:stop]
+        ell_emitter = clipped_chord(chunk[:, None, :], phat[None, :, :], center_e, R_e)
+        ell_absorber = clipped_chord(chunk[:, None, :], phat[None, :, :], center_a, R_a)
+        transmission = np.exp(-kappa_a * ell_absorber * foreground[None, :])
+        emergent = 1.0 - np.exp(-kappa_e * ell_emitter)
+        occupation_0 = S_e * emergent
+        occupation = occupation_0 * transmission
+        number[start:stop], flux[start:stop] = moments_from_f(
+            occupation, directions=phat, phase_volume=vphase_a
+        )
+        isolated[start:stop], _ = moments_from_f(
+            occupation_0, directions=phat, phase_volume=vphase_a
+        )
+    return number, flux, isolated
+
+
 def occupation_number(x, y, z, phat):
     """Occupation number f at (x, y, z) for a unit momentum direction.
 
@@ -293,3 +326,22 @@ def evaluate_chunk(i0, i1, j0=0, j1=None, k0=0, k1=None, store_f=True, max_f_byt
     if not store_f:
         return None, number_density, number_flux
     return distribution.reshape(n_i, n_j, n_k, n_directions), number_density, number_flux
+
+
+def reference_moments_x_slab(i0, i1):
+    """n, F, and isolated n_0 on the half-open x-slab [i0, i1)."""
+    x_centers = (np.arange(i0, i1) + 0.5) * dx
+    y_centers = (np.arange(ncell[1]) + 0.5) * dy
+    z_centers = (np.arange(ncell[2]) + 0.5) * dz
+    xx, yy, zz = np.meshgrid(x_centers, y_centers, z_centers, indexing="ij")
+    points = np.stack((xx, yy, zz), axis=-1).reshape(-1, 3)
+    number, flux, isolated = reference_moments_on_points(points)
+    shape = (i1 - i0, int(ncell[1]), int(ncell[2]))
+    return number.reshape(shape), flux.reshape(shape + (3,)), isolated.reshape(shape)
+
+
+def reference_moments_x_slab_task(bounds):
+    """Pool entry: bounds is (i0, i1). Returns the slab index with the moments."""
+    i0, i1 = bounds
+    number, flux, isolated = reference_moments_x_slab(i0, i1)
+    return i0, number, flux, isolated
